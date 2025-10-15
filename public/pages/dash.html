@@ -1,11 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>What up g</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GRC PAI Report</title>
+    <link rel="stylesheet" href="./../styles/dash.css" />
+    <script src="dash.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <h2 class="tool-title">GRC Tools</h2>
+      <ul>
+        <li><a href="/">PAI Report Tool</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="form">
+        <div>
+          <h2>Division</h2>
+          <select class="division-selector">
+            <option>Pick a division...</option>
+            <option value="Fine Arts">Fine Arts</option>
+            <option value="Humanities">Humanities</option>
+            <option value="Social Science">Social Science</option>
+            <option value="English">English</option>
+            <option value="Science">Science</option>
+            <option value="Technology">Technology</option>
+            <option value="Health Science">Health Science</option>
+            <option value="Trades">Trades</option>
+          </select>
+        </div>
+
+        <div class="toggle-display-form">
+          <div>
+            <label>Division name:</label>
+            <input value="" />
+          </div>
+
+          <div>
+            <label>Dean:</label>
+            <input value="" />
+          </div>
+
+          <div>
+            <label>PEN contact:</label>
+            <input value="" />
+          </div>
+
+          <div>
+            <label>LOC Rep.:</label>
+            <input value="" />
+          </div>
+
+          <div>
+            <label>Chair:</label>
+            <input value="" />
+          </div>
+
+          <div>
+            <button>Cancel</button>
+            <button>Save</button>
+          </div>
+        </div>
+      </div>
+      <div class="table-container">
+        <h2>Edit Logs</h2>
+        <table>
+          <tr>
+            <th>Date edited</th>
+            <th>Division</th>
+            <th>Dean</th>
+            <th>PEN Contact</th>
+            <th>LOC Rep</th>
+            <th>Chair</th>
+          </tr>
+        </table>
+      </div>
+    </main>
+  </body>
 </html>

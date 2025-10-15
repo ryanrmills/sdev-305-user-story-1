@@ -1,0 +1,89 @@
+body {
+    margin: 0em;
+    padding: 0em;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav {
+    height: 100vh;
+    background-color: rgb(19, 143, 0);
+    padding: 1em 2em;
+    box-shadow: 0em 0em 0.4em gray;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0.6em;
+}
+
+nav ul li {
+    margin: 0em;
+    padding: 0em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.tool-title {
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+main {
+    width: 100%;
+    padding: 1em 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 4em;
+}
+
+.form {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-self: center;
+}
+
+.division-selector {
+    width: 16.2em;
+    height: 3.4em;
+}
+
+.toggle-display-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.table-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td {
+    border: solid black 1px;
+    border-collapse: collapse;
+}
+
+tr, td {
+    padding: 1em;
+}
+
