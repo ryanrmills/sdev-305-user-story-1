@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GRC PAI Report</title>
     <link rel="stylesheet" href="./../styles/dash.css" />
-    <script src="dash.js" defer></script>
+    <script src="./../js/dash.js" defer></script>
   </head>
   <body>
     <nav>
@@ -15,7 +15,7 @@
       </ul>
     </nav>
     <main>
-      <div class="form">
+      <form id = "PAI-form" action = "#" method = "get">
         <div>
           <h2>Division</h2>
           <select class="division-selector">
@@ -32,37 +32,45 @@
         </div>
 
         <div class="toggle-display-form">
-          <div>
-            <label>Division name:</label>
-            <input value="" />
-          </div>
+          <form id = "PAI-form" action = "#" method = "get">
+            <fieldset>
+              <div>
+                <span id="err-divison-name" class="error">Please enter a valid division.<br></span>
+                <label for = "divison-name">Division name:</label>
+                <input type = "text" id="divison-name" name ="divison-name" value="" />
+              </div>
 
-          <div>
-            <label>Dean:</label>
-            <input value="" />
-          </div>
+              <div>
+                <span id="err-dean" class="error">Please enter a valid dean.<br></span>
+                <label for = "dean">Dean:</label>
+                <input type = "text" id = "dean" name = "dean" value="" />
+              </div>
 
-          <div>
-            <label>PEN contact:</label>
-            <input value="" />
-          </div>
+              <div>
+                <span id="err-PEN-contact" class="error">Please enter a valid PEN contact.<br></span>
+                <label for = "PEN-contact">PEN contact:</label>
+                <input type = "text" id = "PEN-contact" name = "PEN-contact" value="" />
+              </div>
 
-          <div>
-            <label>LOC Rep.:</label>
-            <input value="" />
-          </div>
+              <div>
+                <span id="err-LOC-rep" class="error">Please enter a valid LOC rep.<br></span>
+                <label for = "LOC-rep">LOC Rep.:</label>
+                <input type = "text" id = "LOC-rep" name = "LOC-rep" value="" />
+              </div>
 
-          <div>
-            <label>Chair:</label>
-            <input value="" />
-          </div>
+              <div>
+                <span id="err-chair" class="error">Please enter a valid chair.<br></span>
+                <label for = "chair">Chair:</label>
+                <input type = "text" id = "chair" name = "chair" value="" />
+              </div>
 
-          <div>
-            <button>Cancel</button>
-            <button>Save</button>
-          </div>
+              <div>
+                <button type="reset" id = "cancel-button">Cancel</button>
+                <button type = "submit" id = "save-button">Save</button>
+              </div>
+            </fieldset>
         </div>
-      </div>
+      </form>
       <div class="table-container">
         <h2>Edit Logs</h2>
         <table>
