@@ -91,3 +91,53 @@ tr, td {
     color: darkred;
     display: none;
 }
+
+.PAI-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.PAI-input label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.4rem;
+}
+
+.PAI-input input[type="text"] {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.PAI-input input[type="text"]:focus {
+  border-color: skyblue;
+  outline: none;
+}
+
+#PAI-reset-submit {
+    padding: 1em;
+}
+
+#PAI-reset-submit #cancel-button {
+    border: none;
+    background-color: red;
+    border-color: red;
+    padding: .5rem .75rem;
+    border-radius: .25rem;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+#PAI-reset-submit #save-button {
+    border: none;
+    background-color: green;
+    border-color: green;
+    padding: .5rem .75rem;
+    border-radius: .25rem;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
