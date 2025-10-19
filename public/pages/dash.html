@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRC PAI Report</title>
-    <link rel="stylesheet" href="./../styles/dash.css" />
+    <link rel="stylesheet" href="./../styles/dash.css">
     <script src="./../js/dash.js" defer></script>
   </head>
   <body>
@@ -15,11 +15,11 @@
       </ul>
     </nav>
     <main>
-      <form id = "PAI-form" action = "#" method = "get">
+      <div id = "PAI-form">
         <div>
           <h2>Division</h2>
-          <select class="division-selector">
-            <option>Pick a division...</option>
+          <select id="division-selector">
+            <option value="none">Pick a division...</option>
             <option value="Fine Arts">Fine Arts</option>
             <option value="Humanities">Humanities</option>
             <option value="Social Science">Social Science</option>
@@ -31,37 +31,37 @@
           </select>
         </div>
 
-        <div class="toggle-display-form">
-          <form id = "PAI-form" action = "#" method = "get">
+        <div id="toggle-display-form">
+          <form class = "PAI-input-fields" action = "#" method = "get">
             <fieldset>
               <div class = "PAI-input">
                 <span id="err-divison-name" class="error">Please enter a valid division.<br></span>
                 <label for = "divison-name">Division name:</label>
-                <input type = "text" id="divison-name" name ="divison-name" value="" />
+                <input type = "text" id="divison-name" name ="divison-name" value="">
               </div>
 
               <div class = "PAI-input">
                 <span id="err-dean" class="error">Please enter a valid dean.<br></span>
                 <label for = "dean">Dean:</label>
-                <input type = "text" id = "dean" name = "dean" value="" />
+                <input type = "text" id = "dean" name = "dean" value="">
               </div>
 
               <div class = "PAI-input">
                 <span id="err-PEN-contact" class="error">Please enter a valid PEN contact.<br></span>
                 <label for = "PEN-contact">PEN contact:</label>
-                <input type = "text" id = "PEN-contact" name = "PEN-contact" value="" />
+                <input type = "text" id = "PEN-contact" name = "PEN-contact" value="">
               </div>
 
               <div class = "PAI-input">
                 <span id="err-LOC-rep" class="error">Please enter a valid LOC rep.<br></span>
                 <label for = "LOC-rep">LOC Rep.:</label>
-                <input type = "text" id = "LOC-rep" name = "LOC-rep" value="" />
+                <input type = "text" id = "LOC-rep" name = "LOC-rep" value="">
               </div>
 
               <div class = "PAI-input">
                 <span id="err-chair" class="error">Please enter a valid chair.<br></span>
                 <label for = "chair">Chair:</label>
-                <input type = "text" id = "chair" name = "chair" value="" />
+                <input type = "text" id = "chair" name = "chair" value="">
               </div>
 
               <div id = "PAI-reset-submit">
@@ -69,8 +69,9 @@
                 <button type = "submit" id = "save-button">Save</button>
               </div>
             </fieldset>
+          </form>
         </div>
-      </form>
+      </div>
       <div class="table-container">
         <h2>Edit Logs</h2>
         <table>

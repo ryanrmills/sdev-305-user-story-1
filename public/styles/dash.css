@@ -55,13 +55,13 @@ main {
     align-self: center;
 }
 
-.division-selector {
+#division-selector {
     width: 16.2em;
     height: 3.4em;
 }
 
-.toggle-display-form {
-    display: flex;
+#toggle-display-form {
+    display: none;
     flex-direction: column;
     gap: 1em;
 }
@@ -106,7 +106,7 @@ tr, td {
 
 .PAI-input input[type="text"] {
   padding: 0.6rem 0.8rem;
-  border: 1px solid #ffffff;
+  border: 1px solid black;
   border-radius: 6px;
   font-size: 1rem;
 }
@@ -121,6 +121,7 @@ tr, td {
 }
 
 #PAI-reset-submit #cancel-button {
+    display: none;
     border: none;
     background-color: red;
     border-color: red;
@@ -132,6 +133,7 @@ tr, td {
 }
 
 #PAI-reset-submit #save-button {
+    display: none;
     border: none;
     background-color: green;
     border-color: green;

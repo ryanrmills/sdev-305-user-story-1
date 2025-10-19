@@ -1,3 +1,4 @@
+
 document.getElementById('PAI-form').onsubmit = () => {
 
     clearErrors();
@@ -42,4 +43,26 @@ function clearErrors() {
     for (let i=0; i<errors.length; i++) {
         errors[i].style.display = "none";
     }
+}
+
+let cancel = document.getElementById('cancel-button');
+let save = document.getElementById('save-button');
+let divisionForm = document.getElementById('toggle-display-form');
+
+document.getElementById('division-selector').addEventListener('change', function () {
+    let selection = this.value;
+    if(selection != "Pick a division..."){
+        save.style.display = "initial";
+        cancel.style.display = "initial";
+        divisionForm.style.display = "flex";
+    }else{
+        save.style.display = "none";
+        cancel.style.display = "none";
+        divisionForm.style.display = "none"
+    }
+});
+
+document.getElementById('PAI-form').onreset = () => {
+    clearErrors();
+    document.getElementById("division-selector").value = "none";
 }
