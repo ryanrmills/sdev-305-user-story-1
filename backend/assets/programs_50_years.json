@@ -1,0 +1,452 @@
+[
+  {
+    "Division": "Fine Arts",
+    "Academic Program": "Music",
+    "Division Chair": "Paul Metevier",
+    "Dean": "Christie Gilliland",
+    "LOC Rep": "Monica Bowen",
+    "PEN Contact": "Music",
+    "Date Submitted": "2025-06-30"
+  },
+  {
+    "Division": "Humanities",
+    "Academic Program": "Communication Studies",
+    "Division Chair": "Katie Cunnion",
+    "Dean": "Jamie Fitzgerald",
+    "LOC Rep": "Lisa Luengo",
+    "PEN Contact": "Communication Studies",
+    "Date Submitted": "2024-06-30"
+  },
+  {
+    "Division": "Social Science",
+    "Academic Program": "Anthropology",
+    "Division Chair": "Mark Thomason",
+    "Dean": "Christie Gilliland",
+    "LOC Rep": "Joy Crawford",
+    "PEN Contact": "Anthropology",
+    "Date Submitted": "2023-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "History",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "History",
+    "Date Submitted": "2022-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Political Science",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Political Science",
+    "Date Submitted": "2021-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Psychology",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Psychology",
+    "Date Submitted": "2020-06-30"
+  },
+  {
+    "Division": "English",
+    "Academic Program": "English",
+    "Division Chair": "Ian Sherman",
+    "Dean": "Jamie Fitzgerald",
+    "LOC Rep": "Jake Frye",
+    "PEN Contact": "English",
+    "Date Submitted": "2019-06-30"
+  },
+  {
+    "Division": "Science",
+    "Academic Program": "Anatomy and Physiology",
+    "Division Chair": "Katy Shaw and Danny Najera",
+    "Dean": "Miebeth Bustillo-Booth",
+    "LOC Rep": "Nicole Feider",
+    "PEN Contact": "Anatomy and Physiology",
+    "Date Submitted": "2018-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Biology/Environmental Science",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Biology/Environmental Science",
+    "Date Submitted": "2017-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Geology/Oceanography",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Geology/Oceanography",
+    "Date Submitted": "2016-06-30"
+  },
+  {
+    "Division": "Business, Law, and Education",
+    "Academic Program": "Accounting",
+    "Division Chair": "Lea Ann Simpson",
+    "Dean": "Lea Ann Simpson",
+    "LOC Rep": "Jane Swenson",
+    "PEN Contact": "Accounting",
+    "Date Submitted": "2015-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Business Management",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Business Management",
+    "Date Submitted": "2014-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Business Marketing/Entrepreneurship",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Business Marketing/Entrepreneurship",
+    "Date Submitted": "2013-06-30"
+  },
+  {
+    "Division": "Technology",
+    "Academic Program": "Aviation",
+    "Division Chair": "Michael Wood",
+    "Dean": "Lea Ann Simpson",
+    "LOC Rep": "Josh Archer",
+    "PEN Contact": "Aviation",
+    "Date Submitted": "2012-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "CAD Design and Engineering Tech.",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "CAD Design and Engineering Tech.",
+    "Date Submitted": "2011-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Natural Resources",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Natural Resources",
+    "Date Submitted": "2010-06-30"
+  },
+  {
+    "Division": "Health Science",
+    "Academic Program": "Practical Nursing",
+    "Division Chair": "Leslie Kessler",
+    "Dean": "Lionel Candido Flores",
+    "LOC Rep": "Thom Jackson",
+    "PEN Contact": "Practical Nursing",
+    "Date Submitted": "2009-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Physical Therapist Assistant",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Physical Therapist Assistant",
+    "Date Submitted": "2008-06-30"
+  },
+  {
+    "Division": "Trades",
+    "Academic Program": "Automotive Technology",
+    "Division Chair": "David Lewis",
+    "Dean": "Lea Ann Simpson",
+    "LOC Rep": "Ben Orr",
+    "PEN Contact": "Automotive Technology",
+    "Date Submitted": "2007-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Manufacturing",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Manufacturing",
+    "Date Submitted": "2006-06-30"
+  },
+  {
+    "Division": "Transitional Studies",
+    "Academic Program": "Health and Physical Education",
+    "Division Chair": NaN,
+    "Dean": "Lionel Candido Flores",
+    "LOC Rep": "Thom Jackson",
+    "PEN Contact": "Health and Physical Education",
+    "Date Submitted": "2005-06-30"
+  },
+  {
+    "Division": "Fine Arts",
+    "Academic Program": "Music",
+    "Division Chair": "Paul Metevier",
+    "Dean": "Christie Gilliland",
+    "LOC Rep": "Monica Bowen",
+    "PEN Contact": "Music",
+    "Date Submitted": "2004-06-30"
+  },
+  {
+    "Division": "Humanities",
+    "Academic Program": "Communication Studies",
+    "Division Chair": "Katie Cunnion",
+    "Dean": "Jamie Fitzgerald",
+    "LOC Rep": "Lisa Luengo",
+    "PEN Contact": "Communication Studies",
+    "Date Submitted": "2003-06-30"
+  },
+  {
+    "Division": "Social Science",
+    "Academic Program": "Anthropology",
+    "Division Chair": "Mark Thomason",
+    "Dean": "Christie Gilliland",
+    "LOC Rep": "Joy Crawford",
+    "PEN Contact": "Anthropology",
+    "Date Submitted": "2002-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "History",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "History",
+    "Date Submitted": "2001-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Political Science",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Political Science",
+    "Date Submitted": "2000-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Psychology",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Psychology",
+    "Date Submitted": "1999-06-30"
+  },
+  {
+    "Division": "English",
+    "Academic Program": "English",
+    "Division Chair": "Ian Sherman",
+    "Dean": "Jamie Fitzgerald",
+    "LOC Rep": "Jake Frye",
+    "PEN Contact": "English",
+    "Date Submitted": "1998-06-30"
+  },
+  {
+    "Division": "Science",
+    "Academic Program": "Anatomy and Physiology",
+    "Division Chair": "Katy Shaw and Danny Najera",
+    "Dean": "Miebeth Bustillo-Booth",
+    "LOC Rep": "Nicole Feider",
+    "PEN Contact": "Anatomy and Physiology",
+    "Date Submitted": "1997-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Biology/Environmental Science",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Biology/Environmental Science",
+    "Date Submitted": "1996-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Geology/Oceanography",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Geology/Oceanography",
+    "Date Submitted": "1995-06-30"
+  },
+  {
+    "Division": "Business, Law, and Education",
+    "Academic Program": "Accounting",
+    "Division Chair": "Lea Ann Simpson",
+    "Dean": "Lea Ann Simpson",
+    "LOC Rep": "Jane Swenson",
+    "PEN Contact": "Accounting",
+    "Date Submitted": "1994-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Business Management",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Business Management",
+    "Date Submitted": "1993-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Business Marketing/Entrepreneurship",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Business Marketing/Entrepreneurship",
+    "Date Submitted": "1992-06-30"
+  },
+  {
+    "Division": "Technology",
+    "Academic Program": "Aviation",
+    "Division Chair": "Michael Wood",
+    "Dean": "Lea Ann Simpson",
+    "LOC Rep": "Josh Archer",
+    "PEN Contact": "Aviation",
+    "Date Submitted": "1991-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "CAD Design and Engineering Tech.",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "CAD Design and Engineering Tech.",
+    "Date Submitted": "1990-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Natural Resources",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Natural Resources",
+    "Date Submitted": "1989-06-30"
+  },
+  {
+    "Division": "Health Science",
+    "Academic Program": "Practical Nursing",
+    "Division Chair": "Leslie Kessler",
+    "Dean": "Lionel Candido Flores",
+    "LOC Rep": "Thom Jackson",
+    "PEN Contact": "Practical Nursing",
+    "Date Submitted": "1988-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Physical Therapist Assistant",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Physical Therapist Assistant",
+    "Date Submitted": "1987-06-30"
+  },
+  {
+    "Division": "Trades",
+    "Academic Program": "Automotive Technology",
+    "Division Chair": "David Lewis",
+    "Dean": "Lea Ann Simpson",
+    "LOC Rep": "Ben Orr",
+    "PEN Contact": "Automotive Technology",
+    "Date Submitted": "1986-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Manufacturing",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Manufacturing",
+    "Date Submitted": "1985-06-30"
+  },
+  {
+    "Division": "Transitional Studies",
+    "Academic Program": "Health and Physical Education",
+    "Division Chair": NaN,
+    "Dean": "Lionel Candido Flores",
+    "LOC Rep": "Thom Jackson",
+    "PEN Contact": "Health and Physical Education",
+    "Date Submitted": "1984-06-30"
+  },
+  {
+    "Division": "Fine Arts",
+    "Academic Program": "Music",
+    "Division Chair": "Paul Metevier",
+    "Dean": "Christie Gilliland",
+    "LOC Rep": "Monica Bowen",
+    "PEN Contact": "Music",
+    "Date Submitted": "1983-06-30"
+  },
+  {
+    "Division": "Humanities",
+    "Academic Program": "Communication Studies",
+    "Division Chair": "Katie Cunnion",
+    "Dean": "Jamie Fitzgerald",
+    "LOC Rep": "Lisa Luengo",
+    "PEN Contact": "Communication Studies",
+    "Date Submitted": "1982-06-30"
+  },
+  {
+    "Division": "Social Science",
+    "Academic Program": "Anthropology",
+    "Division Chair": "Mark Thomason",
+    "Dean": "Christie Gilliland",
+    "LOC Rep": "Joy Crawford",
+    "PEN Contact": "Anthropology",
+    "Date Submitted": "1981-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "History",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "History",
+    "Date Submitted": "1980-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Political Science",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Political Science",
+    "Date Submitted": "1979-06-30"
+  },
+  {
+    "Division": NaN,
+    "Academic Program": "Psychology",
+    "Division Chair": NaN,
+    "Dean": NaN,
+    "LOC Rep": NaN,
+    "PEN Contact": "Psychology",
+    "Date Submitted": "1978-06-30"
+  },
+  {
+    "Division": "English",
+    "Academic Program": "English",
+    "Division Chair": "Ian Sherman",
+    "Dean": "Jamie Fitzgerald",
+    "LOC Rep": "Jake Frye",
+    "PEN Contact": "English",
+    "Date Submitted": "1977-06-30"
+  },
+  {
+    "Division": "Science",
+    "Academic Program": "Anatomy and Physiology",
+    "Division Chair": "Katy Shaw and Danny Najera",
+    "Dean": "Miebeth Bustillo-Booth",
+    "LOC Rep": "Nicole Feider",
+    "PEN Contact": "Anatomy and Physiology",
+    "Date Submitted": "1976-06-30"
+  }
+]

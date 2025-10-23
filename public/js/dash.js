@@ -1,4 +1,21 @@
 
+//Ryan - Functions should be here
+async function fetchDivisionData(division){
+
+    const response = await fetch(`/division-data?division=${division}`);
+
+    const divisionData = await response.json();
+    return divisionData;
+}
+
+//Ryan - page elements should be here
+let divisionInput = document.getElementById('division-name');
+let deanInput = document.getElementById('dean');
+let penContactInput = document.getElementById('PEN-contact');
+let locRepInput = document.getElementById('LOC-rep');
+let chairInput = document.getElementById('chair');
+
+
 document.getElementById('PAI-form').onsubmit = () => {
 
     clearErrors();
@@ -48,19 +65,31 @@ function clearErrors() {
 let cancel = document.getElementById('cancel-button');
 let save = document.getElementById('save-button');
 let divisionForm = document.getElementById('toggle-display-form');
-
-document.getElementById('division-selector').addEventListener('change', function () {
+let divisionData = null;
+document.getElementById('division-selector').addEventListener('change', async function() {
     let selection = this.value;
-    if(selection != "Pick a division..."){
+    if(selection !== "none"){
         save.style.display = "initial";
         cancel.style.display = "initial";
         divisionForm.style.display = "flex";
     }else{
         save.style.display = "none";
         cancel.style.display = "none";
-        divisionForm.style.display = "none"
+        divisionForm.style.display = "none";
     }
+
+    divisionData = await fetchDivisionData(selection);
+    let firstRecentData = divisionData[0];
+    console.log(firstRecentData);
+    //putting the most recent submitted data in the input fields
+    divisionInput.value = firstRecentData.Division ?? '';
+    deanInput.value = firstRecentData.Dean ?? '';
+    penContactInput.value = firstRecentData['PEN Contact'] ?? '';
+    locRepInput.value = firstRecentData['LOC Rep'] ?? '';
+    
 });
+
+
 
 document.getElementById('PAI-form').onreset = () => {
     clearErrors();

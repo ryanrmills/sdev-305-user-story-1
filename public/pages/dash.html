@@ -8,70 +8,85 @@
     <script src="./../js/dash.js" defer></script>
   </head>
   <body>
-    <nav>
-      <h2 class="tool-title">GRC Tools</h2>
-      <ul>
-        <li><a href="/">PAI Report Tool</a></li>
+    <nav class="sidebar-nav" aria-label="GRC tools">
+      <div class="nav-brand">
+        <h2 class="tool-title">GRC Tools</h2>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a class="nav-link active" href="/" aria-current="page">
+            <span class="nav-link__label">PAI Report Tool</span>
+          </a>
+        </li>
       </ul>
     </nav>
     <main>
-      <div id = "PAI-form">
-        <div>
-          <h2>Division</h2>
-          <select id="division-selector">
-            <option value="none">Pick a division...</option>
-            <option value="Fine Arts">Fine Arts</option>
-            <option value="Humanities">Humanities</option>
-            <option value="Social Science">Social Science</option>
-            <option value="English">English</option>
-            <option value="Science">Science</option>
-            <option value="Technology">Technology</option>
-            <option value="Health Science">Health Science</option>
-            <option value="Trades">Trades</option>
-          </select>
+      <form id="PAI-form" class="form-card" action="#" method="get">
+        <div class="form-card__header">
+          <div class="form-card__headline">
+            <h2 class="form-card__title">Division</h2>
+            <p class="form-card__subtitle">Select a division to review or update contact details.</p>
+          </div>
+          <div class="form-card__selector">
+            <label class="input-label" for="division-selector">Division</label>
+            <div class="select-wrapper">
+              <select id="division-selector">
+                <option value="none">Pick a division...</option>
+                <option value="Fine Arts">Fine Arts</option>
+                <option value="Humanities">Humanities</option>
+                <option value="Social Science">Social Science</option>
+                <option value="English">English</option>
+                <option value="Science">Science</option>
+                <option value="Technology">Technology</option>
+                <option value="Health Science">Health Science</option>
+                <option value="Trades">Trades</option>
+              </select>
+            </div>
+          </div>
         </div>
 
-        <div id="toggle-display-form">
-          <form class = "PAI-input-fields" action = "#" method = "get">
-            <fieldset>
-              <div class = "PAI-input">
+        <div id="toggle-display-form" class="form-card__body">
+          <fieldset class="form-fieldset">
+            <legend class="form-fieldset__legend">Division details</legend>
+            <div class="form-grid">
+              <div class="PAI-input">
                 <span id="err-divison-name" class="error">Please enter a valid division.<br></span>
-                <label for = "divison-name">Division name:</label>
-                <input type = "text" id="divison-name" name ="divison-name" value="">
+                <label for="division-name">Division name</label>
+                <input type="text" id="division-name" name="divison-name" value="">
               </div>
 
-              <div class = "PAI-input">
+              <div class="PAI-input">
                 <span id="err-dean" class="error">Please enter a valid dean.<br></span>
-                <label for = "dean">Dean:</label>
-                <input type = "text" id = "dean" name = "dean" value="">
+                <label for="dean">Dean</label>
+                <input type="text" id="dean" name="dean" value="">
               </div>
 
-              <div class = "PAI-input">
+              <div class="PAI-input">
                 <span id="err-PEN-contact" class="error">Please enter a valid PEN contact.<br></span>
-                <label for = "PEN-contact">PEN contact:</label>
-                <input type = "text" id = "PEN-contact" name = "PEN-contact" value="">
+                <label for="PEN-contact">PEN contact</label>
+                <input type="text" id="PEN-contact" name="PEN-contact" value="">
               </div>
 
-              <div class = "PAI-input">
+              <div class="PAI-input">
                 <span id="err-LOC-rep" class="error">Please enter a valid LOC rep.<br></span>
-                <label for = "LOC-rep">LOC Rep.:</label>
-                <input type = "text" id = "LOC-rep" name = "LOC-rep" value="">
+                <label for="LOC-rep">LOC rep.</label>
+                <input type="text" id="LOC-rep" name="LOC-rep" value="">
               </div>
 
-              <div class = "PAI-input">
+              <div class="PAI-input">
                 <span id="err-chair" class="error">Please enter a valid chair.<br></span>
-                <label for = "chair">Chair:</label>
-                <input type = "text" id = "chair" name = "chair" value="">
+                <label for="chair">Chair</label>
+                <input type="text" id="chair" name="chair" value="">
               </div>
+            </div>
 
-              <div id = "PAI-reset-submit">
-                <button type="reset" id = "cancel-button">Cancel</button>
-                <button type = "submit" id = "save-button">Save</button>
-              </div>
-            </fieldset>
-          </form>
+            <div id="PAI-reset-submit" class="form-actions">
+              <button type="reset" id="cancel-button">Cancel</button>
+              <button type="submit" id="save-button">Save</button>
+            </div>
+          </fieldset>
         </div>
-      </div>
+      </form>
       <div class="table-container">
         <h2>Edit Logs</h2>
         <table>
