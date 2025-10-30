@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRC PAI Report</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
+    <script src="//code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+
+    <link rel="stylesheet" href="./../styles/dash.css">
+  </head>
+  <body>
+    <nav class="sidebar-nav" aria-label="GRC tools">
+      <div class="nav-brand">
+        <h2 class="tool-title">GRC Tools</h2>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a class="nav-link active" href="/" aria-current="page">
+            <span class="nav-link__label">PAI Report Tool</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+        <table id="loc-table" class="display">
+            <thead>
+                <tr>
+                    <th>Division</th>
+                    <th>Academic Program</th>
+                    <th>Division Chair</th>
+                    <th>Dean</th>
+                    <th>LOC Rep</th>
+                    <th>PEN Contact</th>
+                    <th>Payee(s)</th>
+                    <th>Has Been Paid</th>
+                    <th>Report Submitted</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% LOCData.forEach(entry => { %>
+
+                <tr>
+                    <td><%= entry.division %></td>
+                    <td><%= entry.academicProgram %></td>
+                    <td><%= entry.divisionChair %></td>
+                    <td><%= entry.dean %></td>
+                    <td><%= entry.locRep %></td>
+                    <td><%= entry.penContact %></td>
+                    <td><%= entry.payees %></td>
+                    <td><%= entry.hasBeenPaid %></td>
+                    <td><%= entry.reportSubmitted %></td>
+                    <td><%= entry.notes %></td>
+                </tr>
+
+                <% }); %>
+
+            </tbody>
+        </table>
+    </main>
+  </body>
+
+  <script defer>
+      let table = new DataTable('#loc-table');
+  </script>
+</html>

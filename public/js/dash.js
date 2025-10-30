@@ -82,10 +82,10 @@ document.getElementById('division-selector').addEventListener('change', async fu
     let firstRecentData = divisionData[0];
     console.log(firstRecentData);
     //putting the most recent submitted data in the input fields
-    divisionInput.value = firstRecentData.Division ?? '';
-    deanInput.value = firstRecentData.Dean ?? '';
-    penContactInput.value = firstRecentData['PEN Contact'] ?? '';
-    locRepInput.value = firstRecentData['LOC Rep'] ?? '';
+    divisionInput.value = firstRecentData.division ?? '';
+    deanInput.value = firstRecentData.dean ?? '';
+    penContactInput.value = firstRecentData['penContact'] ?? '';
+    locRepInput.value = firstRecentData['locRep'] ?? '';
     
 });
 

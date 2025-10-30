@@ -6,24 +6,31 @@ const app = express();
 
 const path = import.meta.dirname;
 
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+const jsonData = await readFile('./backend/assets/programs_50_years_filled_modified.json', 'utf-8');
+let LOCData = JSON.parse(jsonData);
+
 app.get('/', (req, res) => {
-    res.sendFile(`${path}/public/pages/dash.html`);
+    res.render('dash.ejs');
 })
 
 app.get('/division-data', async (req, res) => {
     const division = req.query.division;
-    const jsonData = await readFile('./backend/assets/programs_50_years_filled.json', 'utf-8');
-    const data = JSON.parse(jsonData);
 
-    const result = data.filter(item => item.Division === division);
+    const result = LOCData.filter(item => item.division === division);
 
-    const sorted = [...result].sort((a, b) =>
-        new Date(b['Date Submitted']) - new Date(a['Date Submitted'])
+    let sortedLOCData = [...result].sort((a, b) =>
+        new Date(b['dateSubmitted']) - new Date(a['dateSubmitted'])
     );
 
-    res.json(sorted);
+    res.json(sortedLOCData);
+})
+
+app.get('/summary', (req, res) => { 
+    res.render('summary', {LOCData});
 })
 
 const PORT = 3003;
