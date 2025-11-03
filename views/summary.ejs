@@ -9,6 +9,7 @@
     <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
 
     <link rel="stylesheet" href="./../styles/dash.css">
+    <script src="./../js/summary.js" defer></script>
   </head>
   <body>
     <nav class="sidebar-nav" aria-label="GRC tools">
@@ -62,6 +63,51 @@
 
             </tbody>
         </table>
+        <div id="summary-edit">
+          <div class="form-card">
+            
+            <div class="form-card__header">
+              <div class="form-card__headline">
+                <h2 class="form-card__title">Edit Program</h2>
+                <p id="please-select-program">Please select a program</p>
+              </div>
+              <div>
+                <button type="submit" form="summary-edit-form" id="summary-submit" class="buttons">Submit</button>
+                <button type="reset" form="summary-edit-form" id="summary-cancel" class="buttons">Cancel</button>
+              </div>
+            </div>
+
+            <div id="edit-field">
+              <form action="#" method="get" id="summary-edit-form"></form>
+                <fieldset class="PAI-input">
+                  <label for="division-summary">Division</label>
+                  <input type="text" name="division-summary" id="division-summary">
+                </fieldset>
+                <fieldset class="PAI-input">
+                  <label for="program-summary">Academic Program*</label>
+                  <span id="err-program" class="error">Academic Program cannot be blank.<br></span>
+                  <input type="text" name="program-summary" id="program-summary">
+                </fieldset>
+                <fieldset class="PAI-input">
+                  <label for="payee-summary">Payee(s)</label>
+                  <input type="text" name="payee-summary" id="payee-summary">
+                </fieldset>
+                <fieldset class="PAI-input">
+                  <label for="paid-summary">Has been paid?</label>
+                  <input type="text" name="paid-summary" id="paid-summary">
+                </fieldset>
+                <fieldset class="PAI-input">
+                  <label for="report-summary">Report Submitted?</label>
+                  <input type="text" name="report-summary" id="report-summary">
+                </fieldset>
+                <fieldset class="PAI-input">
+                  <label for="notes-summary">Notes</label>
+                  <input type="text" name="notes-summary" id="notes-summary">
+                </fieldset>
+            </div>
+          </div> 
+        </div>
+
     </main>
   </body>
 

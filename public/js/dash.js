@@ -1,4 +1,5 @@
 
+
 //Ryan - Functions should be here
 async function fetchDivisionData(division){
 
@@ -95,3 +96,4 @@ document.getElementById('PAI-form').onreset = () => {
     clearErrors();
     document.getElementById("division-selector").value = "none";
 }
+

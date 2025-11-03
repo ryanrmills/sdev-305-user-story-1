@@ -333,3 +333,35 @@ tr, td {
         max-width: 100%;
     }
 }
+
+/* Summary Page CSS */
+
+#edit-field{
+    width: 800px;
+}
+#edit-field fieldset{
+    border: none;
+}
+
+#summary-cancel{
+    display: none;
+    border: 1px solid #bdbdbd;
+    background-color: #ffffff;
+    padding: 0.55rem 1.2rem;
+    border-radius: 999px;
+    color: #333333;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+#summary-submit{
+    display: none;
+    border: none;
+    background-color: rgb(19, 143, 0);
+    padding: 0.55rem 1.35rem;
+    border-radius: 999px;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+}
