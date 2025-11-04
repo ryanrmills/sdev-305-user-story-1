@@ -1,0 +1,2 @@
+- table of logs, edit history
+- comment section

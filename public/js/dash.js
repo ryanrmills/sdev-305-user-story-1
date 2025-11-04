@@ -97,3 +97,7 @@ document.getElementById('PAI-form').onreset = () => {
     document.getElementById("division-selector").value = "none";
 }
 
+
+document.getElementById('sign-in-redirect').onclick = async () => {
+    window.location.href = '/sign-in';
+}

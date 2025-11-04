@@ -8,27 +8,43 @@
     <script src="//code.jquery.com/jquery-3.7.1.js"></script>
     <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
 
-    <link rel="stylesheet" href="./../styles/dash.css">
+    <link rel="stylesheet" href="./../styles/dash2.css">
     <script src="./../js/summary.js" defer></script>
   </head>
   <body>
     <nav class="sidebar-nav" aria-label="GRC tools">
       <div class="nav-brand">
-        <h2 class="tool-title">GRC Tools</h2>
+        <span class="nav-badge" aria-hidden="true">LOC</span>
+        <div class="nav-heading">
+          <h2 class="tool-title">GRC Tools</h2>
+          <p class="tool-subtitle">Process Alignment Suite</p>
+        </div>
       </div>
+
       <ul class="nav-list">
-        <li>
+        <li class="nav-item">
           <a class="nav-link active" href="/" aria-current="page">
             <span class="nav-link__label">PAI Report Tool</span>
+            <span class="nav-link__description">Capture and update division contacts.</span>
           </a>
-          <a class="nav-link active" href="/summary" aria-current="page">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/summary">
             <span class="nav-link__label">PAI Summary</span>
+            <span class="nav-link__description">Review submissions at a glance.</span>
           </a>
         </li>
       </ul>
+
+      <div class="nav-footer">
+        <button class="sign-in-btn" id="sign-in-redirect">Sign in</button>
+      </div>
     </nav>
     <main>
-        <table id="loc-table" class="display">
+        <section class="summary-table-card">
+
+          <p id="table-summary-instruction">Click on a row to edit.</p>
+          <table id="loc-table" class="display summary-table">
             <thead>
                 <tr>
                     <th>Division</th>
@@ -62,56 +78,58 @@
                 <% }); %>
 
             </tbody>
-        </table>
-        <div id="summary-edit">
-          <div class="form-card">
-            
-            <div class="form-card__header">
-              <div class="form-card__headline">
-                <h2 class="form-card__title">Edit Program</h2>
-                <p id="please-select-program">Please select a program</p>
+          </table>
+        </section>
+        <div id="summary-edit" aria-hidden="true">
+          <div class="form-card summary-edit__card" role="dialog" aria-modal="true" aria-labelledby="summary-edit-title">
+            <form action="#" method="get" id="summary-edit-form" novalidate>
+              <div class="form-card__header">
+                <div class="form-card__headline">
+                  <h2 class="form-card__title" id="summary-edit-title">Edit Program</h2>
+                  <p id="please-select-program">Please select a program</p>
+                </div>
+                <div class="summary-edit__actions">
+                  <button type="submit" id="summary-submit" class="buttons">Submit</button>
+                  <button type="reset" id="summary-cancel" class="buttons">Cancel</button>
+                </div>
               </div>
-              <div>
-                <button type="submit" form="summary-edit-form" id="summary-submit" class="buttons">Submit</button>
-                <button type="reset" form="summary-edit-form" id="summary-cancel" class="buttons">Cancel</button>
-              </div>
-            </div>
 
-            <div id="edit-field">
-              <form action="#" method="get" id="summary-edit-form"></form>
+              <div id="edit-field">
                 <fieldset class="PAI-input">
-                  <label for="division-summary">Division</label>
-                  <input type="text" name="division-summary" id="division-summary">
+                  <label for="division-summary">Division*</label>
+                  <span id="err-division" class="error">Division cannot be blank.<br></span>
+                  <input type="text" name="division-summary" id="division-summary" autocomplete="off">
                 </fieldset>
                 <fieldset class="PAI-input">
                   <label for="program-summary">Academic Program*</label>
                   <span id="err-program" class="error">Academic Program cannot be blank.<br></span>
-                  <input type="text" name="program-summary" id="program-summary">
+                  <input type="text" name="program-summary" id="program-summary" autocomplete="off">
                 </fieldset>
                 <fieldset class="PAI-input">
-                  <label for="payee-summary">Payee(s)</label>
-                  <input type="text" name="payee-summary" id="payee-summary">
+                  <label for="payee-summary">Payee(s)*</label>
+                  <span id="err-payee" class="error">Payee(s) cannot be blank.<br></span>
+                  <input type="text" name="payee-summary" id="payee-summary" autocomplete="off">
                 </fieldset>
                 <fieldset class="PAI-input">
-                  <label for="paid-summary">Has been paid?</label>
-                  <input type="text" name="paid-summary" id="paid-summary">
+                  <label for="paid-summary">Has been paid? (Yes/No)*</label>
+                  <span id="err-paid" class="error">Enter Yes or No.<br></span>
+                  <input type="text" name="paid-summary" id="paid-summary" autocomplete="off" inputmode="text">
                 </fieldset>
                 <fieldset class="PAI-input">
-                  <label for="report-summary">Report Submitted?</label>
-                  <input type="text" name="report-summary" id="report-summary">
+                  <label for="report-summary">Report Submitted? (Yes/No)*</label>
+                  <span id="err-report" class="error">Enter Yes or No.<br></span>
+                  <input type="text" name="report-summary" id="report-summary" autocomplete="off" inputmode="text">
                 </fieldset>
                 <fieldset class="PAI-input">
                   <label for="notes-summary">Notes</label>
-                  <input type="text" name="notes-summary" id="notes-summary">
+                  <span id="err-notes" class="error">Notes must be 500 characters or fewer.<br></span>
+                  <input type="text" name="notes-summary" id="notes-summary" autocomplete="off" maxlength="500">
                 </fieldset>
-            </div>
-          </div> 
+              </div>
+            </form>
+          </div>
         </div>
 
     </main>
   </body>
-
-  <script defer>
-      let table = new DataTable('#loc-table');
-  </script>
 </html>

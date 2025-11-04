@@ -1,48 +1,168 @@
-let form = document.getElementById('summary-edit-form')
-let buttons = document.getElementsByClassName('buttons')
+const form = document.getElementById('summary-edit-form');
+const summaryEditModal = document.getElementById('summary-edit');
+const pleaseSelectProgram = document.getElementById('please-select-program');
+const buttons = document.querySelectorAll('#summary-edit .buttons');
+
+const fieldRules = [
+    {
+        input: document.getElementById('division-summary'),
+        error: document.getElementById('err-division'),
+        validator: (value) => {
+            const trimmed = value.trim();
+            return { valid: trimmed.length > 0, normalized: trimmed };
+        }
+    },
+    {
+        input: document.getElementById('program-summary'),
+        error: document.getElementById('err-program'),
+        validator: (value) => {
+            const trimmed = value.trim();
+            return { valid: trimmed.length > 0, normalized: trimmed };
+        }
+    },
+    {
+        input: document.getElementById('payee-summary'),
+        error: document.getElementById('err-payee'),
+        validator: (value) => {
+            const trimmed = value.trim();
+            return { valid: trimmed.length > 0, normalized: trimmed };
+        }
+    },
+    {
+        input: document.getElementById('paid-summary'),
+        error: document.getElementById('err-paid'),
+        validator: (value) => {
+            const normalized = value.trim().toLowerCase();
+            if (normalized === 'yes' || normalized === 'no') {
+                return { valid: true, normalized: normalized === 'yes' ? 'Yes' : 'No' };
+            }
+            return { valid: false };
+        }
+    },
+    {
+        input: document.getElementById('report-summary'),
+        error: document.getElementById('err-report'),
+        validator: (value) => {
+            const normalized = value.trim().toLowerCase();
+            if (normalized === 'yes' || normalized === 'no') {
+                return { valid: true, normalized: normalized === 'yes' ? 'Yes' : 'No' };
+            }
+            return { valid: false };
+        }
+    },
+    {
+        input: document.getElementById('notes-summary'),
+        error: document.getElementById('err-notes'),
+        validator: (value) => {
+            const trimmed = value.trim();
+            if (trimmed.length <= 500) {
+                return { valid: true, normalized: trimmed };
+            }
+            return { valid: false };
+        }
+    }
+];
 
 clearInputs();
 
 table = new DataTable('#loc-table');
 table.on('click', 'tbody tr', function () {
-    document.getElementById('please-select-program').style.display="none";
+    openSummaryModal();
+    pleaseSelectProgram.style.display = "none";
+    hideAllErrors();
     let data = table.row(this).data();
-    console.log(data)
-    
-    document.getElementById('division-summary').value = data[0]
-    document.getElementById('program-summary').value = data[1]
-    document.getElementById('payee-summary').value = data[6]
-    document.getElementById('paid-summary').value = data[7]
-    document.getElementById('report-summary').value = data[8]
-    document.getElementById('notes-summary').value = data[9]
 
-    for(let i = 0; i < buttons.length; i++){
-        buttons[i].style.display= "initial";
-    }
-})
+    fieldRules[0].input.value = String(data[0] ?? '').trim();
+    fieldRules[1].input.value = String(data[1] ?? '').trim();
+    fieldRules[2].input.value = String(data[6] ?? '').trim();
+    fieldRules[3].input.value = String(data[7] ?? '').trim();
+    fieldRules[4].input.value = String(data[8] ?? '').trim();
+    fieldRules[5].input.value = String(data[9] ?? '').trim();
+});
 
-function clearInputs(){
-    let inputs = document.getElementsByTagName("input")
-    for(let i = 0; i < inputs.length; i++){
-        inputs[i].value= null;
-    }
+function clearInputs() {
+    fieldRules.forEach(({ input }) => {
+        input.value = '';
+    });
+    hideAllErrors();
 }
 
-document.getElementById('summary-edit-form').onsubmit = () => {
+function hideAllErrors() {
+    fieldRules.forEach(({ error }) => {
+        error.style.display = "none";
+    });
+}
+
+function openSummaryModal() {
+    summaryEditModal.classList.add('is-open');
+    summaryEditModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    buttons.forEach((button) => {
+        button.style.display = 'inline-flex';
+    });
+}
+
+function closeSummaryModal() {
+    summaryEditModal.classList.remove('is-open');
+    summaryEditModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    buttons.forEach((button) => {
+        button.style.display = 'none';
+    });
+    pleaseSelectProgram.style.display = "initial";
+}
+
+function validateField(rule) {
+    const { input, error, validator } = rule;
+    const result = validator(input.value);
+    if (!result.valid) {
+        error.style.display = "initial";
+        return false;
+    }
+    if (Object.prototype.hasOwnProperty.call(result, 'normalized')) {
+        input.value = result.normalized;
+    }
+    error.style.display = "none";
+    return true;
+}
+
+form.addEventListener('submit', (event) => {
     let isValid = true;
+    fieldRules.forEach((rule) => {
+        const fieldIsValid = validateField(rule);
+        if (!fieldIsValid) {
+            isValid = false;
+        }
+    });
 
-    let program = document.getElementById('program-summary').value;
-    if(!program){
-        isValid = false;
-        document.getElementById('err-program').style.display="initial"
+    if (!isValid) {
+        event.preventDefault();
     }
-    return isValid;
-}
-document.getElementById('summary-edit-form').onreset = () => {
+});
+
+form.addEventListener('reset', () => {
     clearInputs();
-    document.getElementById('please-select-program').style.display="initial";
-    document.getElementById('err-program').style.display="none"
-}
-document.getElementById('program-summary').addEventListener('change', () =>{
-    document.getElementById('err-program').style.display="none"
-})
+    closeSummaryModal();
+});
+
+fieldRules.forEach(({ input, error }) => {
+    input.addEventListener('input', () => {
+        error.style.display = "none";
+    });
+});
+
+summaryEditModal.addEventListener('click', (event) => {
+    if (event.target === summaryEditModal) {
+        form.reset();
+    }
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && summaryEditModal.classList.contains('is-open')) {
+        form.reset();
+    }
+});
+
+document.getElementById('sign-in-redirect').onclick = async () => {
+    window.location.href = '/sign-in';
+};

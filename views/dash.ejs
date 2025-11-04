@@ -10,18 +10,31 @@
   <body>
     <nav class="sidebar-nav" aria-label="GRC tools">
       <div class="nav-brand">
-        <h2 class="tool-title">GRC Tools</h2>
+        <span class="nav-badge" aria-hidden="true">LOC</span>
+        <div class="nav-heading">
+          <h2 class="tool-title">GRC Tools</h2>
+          <p class="tool-subtitle">Process Alignment Suite</p>
+        </div>
       </div>
+
       <ul class="nav-list">
-        <li>
+        <li class="nav-item">
           <a class="nav-link active" href="/" aria-current="page">
             <span class="nav-link__label">PAI Report Tool</span>
+            <span class="nav-link__description">Capture and update division contacts.</span>
           </a>
-          <a class="nav-link active" href="/summary" aria-current="page">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/summary">
             <span class="nav-link__label">PAI Summary</span>
+            <span class="nav-link__description">Review submissions at a glance.</span>
           </a>
         </li>
       </ul>
+
+      <div class="nav-footer">
+        <button class="sign-in-btn" id="sign-in-redirect">Sign in</button>
+      </div>
     </nav>
     <main>
       <form id="PAI-form" class="form-card" action="#" method="get">
@@ -90,19 +103,6 @@
           </fieldset>
         </div>
       </form>
-      <div class="table-container">
-        <h2>Edit Logs</h2>
-        <table>
-          <tr>
-            <th>Date edited</th>
-            <th>Division</th>
-            <th>Dean</th>
-            <th>PEN Contact</th>
-            <th>LOC Rep</th>
-            <th>Chair</th>
-          </tr>
-        </table>
-      </div>
     </main>
   </body>
 </html>
