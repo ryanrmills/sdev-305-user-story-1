@@ -23,10 +23,10 @@ const fieldRules = [
     {
         input: document.getElementById('payee-summary'),
         error: document.getElementById('err-payee'),
-        validator: (value) => {
+        /*validator: (value) => {
             const trimmed = value.trim();
             return { valid: trimmed.length > 0, normalized: trimmed };
-        }
+        }*/
     },
     {
         input: document.getElementById('paid-summary'),

@@ -23,8 +23,8 @@ let LOCData = [
     "penContact": "pen_contact_0@college.edu",
     "dateSubmitted": "2025-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -36,8 +36,8 @@ let LOCData = [
     "penContact": "pen_contact_1@college.edu",
     "dateSubmitted": "2024-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -49,8 +49,8 @@ let LOCData = [
     "penContact": "pen_contact_2@college.edu",
     "dateSubmitted": "2023-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -62,8 +62,8 @@ let LOCData = [
     "penContact": "pen_contact_3@college.edu",
     "dateSubmitted": "2022-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -75,8 +75,8 @@ let LOCData = [
     "penContact": "pen_contact_4@college.edu",
     "dateSubmitted": "2021-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -88,8 +88,8 @@ let LOCData = [
     "penContact": "pen_contact_5@college.edu",
     "dateSubmitted": "2020-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -101,8 +101,8 @@ let LOCData = [
     "penContact": "pen_contact_6@college.edu",
     "dateSubmitted": "2019-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -114,8 +114,8 @@ let LOCData = [
     "penContact": "pen_contact_7@college.edu",
     "dateSubmitted": "2018-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -127,8 +127,8 @@ let LOCData = [
     "penContact": "pen_contact_8@college.edu",
     "dateSubmitted": "2017-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -140,8 +140,8 @@ let LOCData = [
     "penContact": "pen_contact_9@college.edu",
     "dateSubmitted": "2016-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -153,8 +153,8 @@ let LOCData = [
     "penContact": "pen_contact_10@college.edu",
     "dateSubmitted": "2015-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -166,8 +166,8 @@ let LOCData = [
     "penContact": "pen_contact_11@college.edu",
     "dateSubmitted": "2014-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -179,8 +179,8 @@ let LOCData = [
     "penContact": "pen_contact_12@college.edu",
     "dateSubmitted": "2013-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -192,8 +192,8 @@ let LOCData = [
     "penContact": "pen_contact_13@college.edu",
     "dateSubmitted": "2012-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -205,8 +205,8 @@ let LOCData = [
     "penContact": "pen_contact_14@college.edu",
     "dateSubmitted": "2011-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -218,8 +218,8 @@ let LOCData = [
     "penContact": "pen_contact_15@college.edu",
     "dateSubmitted": "2010-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -231,8 +231,8 @@ let LOCData = [
     "penContact": "pen_contact_16@college.edu",
     "dateSubmitted": "2009-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -244,8 +244,8 @@ let LOCData = [
     "penContact": "pen_contact_17@college.edu",
     "dateSubmitted": "2008-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -257,8 +257,8 @@ let LOCData = [
     "penContact": "pen_contact_18@college.edu",
     "dateSubmitted": "2007-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -270,8 +270,8 @@ let LOCData = [
     "penContact": "pen_contact_19@college.edu",
     "dateSubmitted": "2006-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -283,8 +283,8 @@ let LOCData = [
     "penContact": "pen_contact_20@college.edu",
     "dateSubmitted": "2005-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -296,8 +296,8 @@ let LOCData = [
     "penContact": "pen_contact_21@college.edu",
     "dateSubmitted": "2004-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -309,8 +309,8 @@ let LOCData = [
     "penContact": "pen_contact_22@college.edu",
     "dateSubmitted": "2003-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -322,8 +322,8 @@ let LOCData = [
     "penContact": "pen_contact_23@college.edu",
     "dateSubmitted": "2002-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -335,8 +335,8 @@ let LOCData = [
     "penContact": "pen_contact_24@college.edu",
     "dateSubmitted": "2001-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -348,8 +348,8 @@ let LOCData = [
     "penContact": "pen_contact_25@college.edu",
     "dateSubmitted": "2000-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -361,8 +361,8 @@ let LOCData = [
     "penContact": "pen_contact_26@college.edu",
     "dateSubmitted": "1999-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -374,8 +374,8 @@ let LOCData = [
     "penContact": "pen_contact_27@college.edu",
     "dateSubmitted": "1998-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -387,8 +387,8 @@ let LOCData = [
     "penContact": "pen_contact_28@college.edu",
     "dateSubmitted": "1997-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -400,8 +400,8 @@ let LOCData = [
     "penContact": "pen_contact_29@college.edu",
     "dateSubmitted": "1996-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -413,8 +413,8 @@ let LOCData = [
     "penContact": "pen_contact_30@college.edu",
     "dateSubmitted": "1995-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -426,8 +426,8 @@ let LOCData = [
     "penContact": "pen_contact_31@college.edu",
     "dateSubmitted": "1994-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -439,8 +439,8 @@ let LOCData = [
     "penContact": "pen_contact_32@college.edu",
     "dateSubmitted": "1993-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -452,8 +452,8 @@ let LOCData = [
     "penContact": "pen_contact_33@college.edu",
     "dateSubmitted": "1992-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -465,8 +465,8 @@ let LOCData = [
     "penContact": "pen_contact_34@college.edu",
     "dateSubmitted": "1991-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -478,8 +478,8 @@ let LOCData = [
     "penContact": "pen_contact_35@college.edu",
     "dateSubmitted": "1990-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -491,8 +491,8 @@ let LOCData = [
     "penContact": "pen_contact_36@college.edu",
     "dateSubmitted": "1989-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -504,8 +504,8 @@ let LOCData = [
     "penContact": "pen_contact_37@college.edu",
     "dateSubmitted": "1988-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -517,8 +517,8 @@ let LOCData = [
     "penContact": "pen_contact_38@college.edu",
     "dateSubmitted": "1987-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -530,8 +530,8 @@ let LOCData = [
     "penContact": "pen_contact_39@college.edu",
     "dateSubmitted": "1986-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -543,8 +543,8 @@ let LOCData = [
     "penContact": "pen_contact_40@college.edu",
     "dateSubmitted": "1985-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -556,8 +556,8 @@ let LOCData = [
     "penContact": "pen_contact_41@college.edu",
     "dateSubmitted": "1984-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -569,8 +569,8 @@ let LOCData = [
     "penContact": "pen_contact_42@college.edu",
     "dateSubmitted": "1983-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -582,8 +582,8 @@ let LOCData = [
     "penContact": "pen_contact_43@college.edu",
     "dateSubmitted": "1982-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -595,8 +595,8 @@ let LOCData = [
     "penContact": "pen_contact_44@college.edu",
     "dateSubmitted": "1981-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -608,8 +608,8 @@ let LOCData = [
     "penContact": "pen_contact_45@college.edu",
     "dateSubmitted": "1980-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -621,8 +621,8 @@ let LOCData = [
     "penContact": "pen_contact_46@college.edu",
     "dateSubmitted": "1979-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -634,8 +634,8 @@ let LOCData = [
     "penContact": "pen_contact_47@college.edu",
     "dateSubmitted": "1978-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -647,8 +647,8 @@ let LOCData = [
     "penContact": "pen_contact_48@college.edu",
     "dateSubmitted": "1977-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   },
   {
@@ -660,8 +660,8 @@ let LOCData = [
     "penContact": "pen_contact_49@college.edu",
     "dateSubmitted": "1976-06-30",
     "payees": "",
-    "hasBeenPaid": false,
-    "reportSubmitted": false,
+    "hasBeenPaid": "no",
+    "reportSubmitted": "no",
     "notes": ""
   }
 ]
