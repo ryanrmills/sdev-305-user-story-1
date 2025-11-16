@@ -46,7 +46,9 @@
           <p id="table-summary-instruction">Click on a row to edit.</p>
           <table id="loc-table" class="display summary-table">
             <thead>
-                <tr>
+                <tr> 
+                  <!-- This is the hidden ID variable used to identify what needs to be changed in the Database -->
+                    <th>ID</th>
                     <th>Division</th>
                     <th>Academic Program</th>
                     <th>Division Chair</th>
@@ -63,15 +65,17 @@
                 <% LOCData.forEach(entry => { %>
 
                 <tr>
+                  <!-- This is the hidden ID variable used to identify what needs to be changed in the Database -->
+                    <td><%= entry.id%></td>
                     <td><%= entry.division %></td>
-                    <td><%= entry.academicProgram %></td>
-                    <td><%= entry.divisionChair %></td>
+                    <td><%= entry.academic_program %></td>
+                    <td><%= entry.division_chair %></td>
                     <td><%= entry.dean %></td>
-                    <td><%= entry.locRep %></td>
-                    <td><%= entry.penContact %></td>
+                    <td><%= entry.loc_rep %></td>
+                    <td><%= entry.pen_contact %></td>
                     <td><%= entry.payees %></td>
-                    <td><%= entry.hasBeenPaid %></td>
-                    <td><%= entry.reportSubmitted %></td>
+                    <td><%= entry.has_been_paid%></td>
+                    <td><%= entry.report_submitted%></td>
                     <td><%= entry.notes %></td>
                 </tr>
 
@@ -82,7 +86,7 @@
         </section>
         <div id="summary-edit" aria-hidden="true">
           <div class="form-card summary-edit__card" role="dialog" aria-modal="true" aria-labelledby="summary-edit-title">
-            <form action="#" method="get" id="summary-edit-form" novalidate>
+            <form action="submit-data" method="post" id="summary-edit-form" novalidate>
               <div class="form-card__header">
                 <div class="form-card__headline">
                   <h2 class="form-card__title" id="summary-edit-title">Edit Program</h2>
@@ -125,6 +129,8 @@
                   <span id="err-notes" class="error">Notes must be 500 characters or fewer.<br></span>
                   <input type="text" name="notes-summary" id="notes-summary" autocomplete="off" maxlength="500">
                 </fieldset>
+                  <!-- This is the hidden ID variable input used to pass the number back to the server so it can indentify the row -->
+                  <input type="hidden" value="" name="id-summary" id="id-summary" />
               </div>
             </form>
           </div>
