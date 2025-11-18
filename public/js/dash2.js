@@ -162,6 +162,7 @@ divisionSelector.addEventListener('change', async (event) => {
         };
 
         populateDivisionCard(currentDivision, selection);
+        renderHistory();
     } catch (error) {
         console.error('Failed to load division data', error);
         currentDivision = null;
@@ -241,9 +242,212 @@ editForm.addEventListener('submit', (event) => {
     };
 
     populateDivisionCard(currentDivision);
+    addHistoryEntry({
+        division: currentDivision.division,
+        summary: `${currentDivision.division} updated`,
+        details: {
+            program: currentDivision.academicProgram,
+            chair: currentDivision.divisionChair,
+            dean: currentDivision.dean,
+            locRep: currentDivision.locRep,
+            penContact: currentDivision.penContact,
+            reportSubmitted: currentDivision.reportSubmitted,
+            hasBeenPaid: currentDivision.hasBeenPaid,
+            notes: currentDivision.notes
+        },
+        timestamp: currentDivision.dateSubmitted
+    });
+
     closeEditModal();
 });
 
 document.getElementById('sign-in-redirect').onclick = () => {
     window.location.href = '/sign-in';
 };
+
+//handler for the edit history get into json.
+const fetchHistoryFromServer = async () => {
+    try {
+        const res = await fetch('/edit-history');
+        return await res.json();
+    } catch (e) {
+        console.error('Failed to load edit history from server', e);
+        throw e;
+    }
+};
+
+//used purely for the filter so we dont do way too many sql queries
+let historyCache = [];
+
+const applyHistoryFilter = (query) => {
+    const list = document.getElementById('edit-history-list');
+    const empty = document.getElementById('edit-history-empty');
+    if (!list) return;
+
+    const q = (query || '').trim().toLowerCase();
+    const items = historyCache.slice().reverse();
+
+    list.innerHTML = '';
+
+    //we check if any of the filter string is in any program, notes, etc etc, if so, we want it.
+    const filtered = q ? items.filter((entry) => {
+        const parts = [];
+        if (entry.summary) parts.push(entry.summary);
+        if (entry.division) parts.push(entry.division);
+
+        const d = entry.details || {};
+        if (d.changes) {
+            for (const [k, v] of Object.entries(d.changes)) {
+                parts.push(k);
+                parts.push(String(v?.from ?? ''));
+                parts.push(String(v?.to ?? ''));
+            }
+        }
+
+        ['program', 'chair', 'dean', 'locRep', 'penContact', 'notes'].forEach(f => { parts.push(String(d[f] ?? '')); });
+
+        return parts.join(' ').toLowerCase().includes(q);
+    }) : items;
+
+    //if we dont have anything, display a message so they dont think its not loading
+    if (!filtered || filtered.length === 0) {
+        empty.textContent = q ? 'No edits match your filter.' : 'No edits yet. Changes you save will appear here.';
+        empty.style.display = 'block';
+        return;
+    }
+
+    empty.style.display = 'none';
+
+    filtered.forEach((entry) => {
+        const li = document.createElement('li');
+        li.className = 'edit-history-item';
+
+        const meta = document.createElement('div');
+        meta.className = 'edit-history-meta';
+        const time = document.createElement('time');
+        const ts = entry.timestamp ? new Date(entry.timestamp) : new Date();
+        time.dateTime = ts.toISOString();
+        time.textContent = ts.toLocaleString(undefined, {month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit'});
+        meta.appendChild(time);
+
+        const summary = document.createElement('p');
+        summary.className = 'edit-history-summary';
+        summary.textContent = entry.summary || entry.division;
+
+        li.appendChild(meta);
+        li.appendChild(summary);
+
+        if (entry.details && entry.details.changes && Object.keys(entry.details.changes).length > 0) {
+            const changesContainer = document.createElement('div');
+            changesContainer.className = 'edit-history-changes';
+            const fieldLabels = {
+                division: 'Division',
+                academicProgram: 'Program',
+                payees: 'Payees',
+                divisionChair: 'Chair',
+                dean: 'Dean',
+                locRep: 'LOC rep',
+                penContact: 'PEN contact',
+                reportSubmitted: 'Report submitted',
+                hasBeenPaid: 'Paid',
+                notes: 'Notes'
+            };
+
+            //what actually changed
+            Object.entries(entry.details.changes).forEach(([key, change]) => {
+                const p = document.createElement('p');
+                p.className = 'edit-history-detail';
+                const label = fieldLabels[key] || key;
+                let fromText;
+                if (change.from === null || typeof change.from === 'undefined') {
+                    fromText = '—';
+                } else {
+                    fromText = String(change.from);
+                }
+
+                let toText;
+                if (change.to === null || typeof change.to === 'undefined') {
+                    toText = '—';
+                } else {
+                    toText = String(change.to);
+                }
+                p.textContent = `${label}: ${fromText} -> ${toText}`;
+                changesContainer.appendChild(p);
+            });
+
+            li.appendChild(changesContainer);
+        }
+
+        list.appendChild(li);
+    });
+};
+
+const renderHistory = async () => {
+    const list = document.getElementById('edit-history-list');
+    if (!list) return;
+    const serverItems = await fetchHistoryFromServer();
+    if (serverItems) {
+        historyCache = serverItems.map(r => ({
+            division: r.division,
+            summary: r.summary,
+            details: (typeof r.details === 'string') ? JSON.parse(r.details) : r.details,
+            timestamp: r.timestamp || r.time || r.date || new Date().toISOString()
+        }));
+    } else {
+        historyCache = [];
+    }
+
+    const searchEl = document.getElementById('edit-history-search');
+    const q = searchEl ? searchEl.value : '';
+    applyHistoryFilter(q);
+};
+
+const addHistoryEntry = async (entry) => {
+    try {
+        const res = await fetch('/edit-history', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(entry)
+        });
+
+        await renderHistory();
+    } catch (e) {
+        console.error('Failed to save edit history to server', e);
+    }
+};
+
+const search = document.getElementById('edit-history-search');
+search.addEventListener('input', (e) => { 
+	applyHistoryFilter(e.target.value);
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    renderHistory();
+    const aside = document.getElementById('edit-history');
+    const toggle = document.getElementById('edit-history-toggle');
+    if (!aside || !toggle) return;
+
+    function setCollapsed(collapsed) {         
+        if (collapsed) {
+            aside.classList.add('collapsed');
+            toggle.textContent = '<';
+        } else {
+            aside.classList.remove('collapsed');
+            toggle.textContent = '>';
+        }
+        try {
+            localStorage.setItem('editHistoryCollapsed', collapsed ? '1' : '0'); 
+        } catch (e) {}
+        document.body.classList.toggle('history-open', !collapsed);
+        }
+
+    toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        setCollapsed(!aside.classList.contains('collapsed'));
+    });
+
+    try {
+        const saved = localStorage.getItem('editHistoryCollapsed');
+        setCollapsed(saved === '1');
+    } catch (e) {}
+});
