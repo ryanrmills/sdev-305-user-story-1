@@ -500,11 +500,6 @@ body.history-open main {
     flex: 0 0 auto;
 }
 
-.edit-history-controls, .edit-history-controls {
-    display: flex;
-    gap: 0.35rem;
-}
-
 .edit-history-header h3 {
     margin: 0;
     font-size: 1.05rem;
@@ -588,15 +583,6 @@ body.history-open main {
     font-size: 0.9rem;
 }
 
-.edit-history-controls {
-    display: flex;
-    gap: 0.35rem;
-    position: absolute;
-    right: 0.6rem;
-    top: 0.6rem;
-    z-index: 2;
-}
-
 #edit-history-toggle {
     display: inline-flex;
     align-items: center;
@@ -634,15 +620,6 @@ body.history-open main {
 .edit-history.collapsed .edit-history-item,
 .edit-history.collapsed .edit-history-search {
     display: none;
-}
-
-.edit-history.collapsed .edit-history-controls {
-    position: absolute;
-    right: 0.6rem;
-    top: 0.6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .edit-history.collapsed #edit-history-toggle {
