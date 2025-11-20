@@ -73,7 +73,7 @@ const updateStatusChip = (element, isComplete, completeText, pendingText) => {
 
 const populateDivisionCard = (entry, fallbackDivision) => {
     divisionName.textContent = entry.division ?? fallbackDivision ?? '—';
-    programName.textContent = entry.academicProgram ?? '—';
+    //programName.textContent = entry.academicProgram ?? '—';
     divisionChair.textContent = entry.divisionChair ?? '—';
     dean.textContent = entry.dean ?? '—';
     locRep.textContent = entry.locRep ?? '—';
@@ -136,7 +136,7 @@ const closeEditModal = () => {
 
 divisionSelector.addEventListener('change', async (event) => {
     const selection = event.target.value;
-
+    console.log(selection);
     if (selection === 'none') {
         currentDivision = null;
         divisionCard.classList.remove('is-visible');
@@ -146,15 +146,16 @@ divisionSelector.addEventListener('change', async (event) => {
 
     try {
         const divisionData = await fetchDivisionData(selection);
-        const latestEntry = Array.isArray(divisionData) && divisionData.length > 0 ? divisionData[0] : {};
-
+        //const latestEntry = Array.isArray(divisionData) && divisionData.length > 0 ? divisionData[0] : {};
+        const latestEntry = divisionData;
+        console.log(latestEntry)
         currentDivision = {
-            division: latestEntry.division ?? selection,
-            academicProgram: latestEntry.academicProgram ?? '',
-            divisionChair: latestEntry.divisionChair ?? '',
-            dean: latestEntry.dean ?? '',
-            locRep: latestEntry.locRep ?? '',
-            penContact: latestEntry.penContact ?? '',
+            division: latestEntry.division_name ?? selection,
+            //academicProgram: latestEntry.academicProgram ?? '',
+            divisionChair: latestEntry.division_chair ?? '',
+            dean: latestEntry.division_dean ?? '',
+            locRep: latestEntry.division_loc_rep ?? '',
+            penContact: latestEntry.division_pen_contact ?? '',
             notes: latestEntry.notes ?? '',
             reportSubmitted: Boolean(latestEntry.reportSubmitted),
             hasBeenPaid: Boolean(latestEntry.hasBeenPaid),

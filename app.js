@@ -33,13 +33,17 @@ app.get('/sign-in', (req, res) => {
 app.get('/division-data', async (req, res) => {
     const division = req.query.division;
 
-    const result = LOCData.filter(item => item.division === division);
+    //const result = LOCData.filter(item => item.division === division);
 
-    let sortedLOCData = [...result].sort((a, b) =>
-        new Date(b['dateSubmitted']) - new Date(a['dateSubmitted'])
-    );
+    const [result] = await pool.query(`SELECT * FROM divisions WHERE division_name = '${division}'`);
 
-    res.json(sortedLOCData);
+    // let sortedLOCData = [...result].sort((a, b) =>
+    //     new Date(b['dateSubmitted']) - new Date(a['dateSubmitted'])
+    // );
+
+    // res.json(sortedLOCData);
+    console.log({resultDivisons: result});
+    res.send(result[0]);
 })
 
 app.get('/summary', async(req, res) => { 
