@@ -11,38 +11,7 @@
     <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
   </head>
   <body>
-    <nav class="sidebar-nav" aria-label="GRC tools">
-      <div class="nav-brand">
-        <span class="nav-badge" aria-hidden="true">LOC</span>
-        <div class="nav-heading">
-          <h2 class="tool-title">GRC Tools</h2>
-          <p class="tool-subtitle">Process Alignment Suite</p>
-        </div>
-      </div>
-
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link active" href="/" aria-current="page">
-            <span class="nav-link__label">PAI Report Tool</span>
-            <span class="nav-link__description"
-              >Capture and update division contacts.</span
-            >
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/summary">
-            <span class="nav-link__label">PAI Summary</span>
-            <span class="nav-link__description"
-              >Review submissions at a glance.</span
-            >
-          </a>
-        </li>
-      </ul>
-
-      <div class="nav-footer">
-        <button class="sign-in-btn" id="sign-in-redirect">Sign in</button>
-      </div>
-    </nav>
+    <%- include('partials/nav') %>
     <main>
       <div id="PAI-form" class="form-card">
         <div class="form-card__header">
@@ -124,21 +93,7 @@
       </section>
     </main>
 
-    <aside id="edit-history" class="edit-history">
-      <header class="edit-history-header">
-        <div class="edit-history-header-row">
-          <h3 id="edit-history-title" class="edit-history-title">Edit history</h3>
-          <input id="edit-history-search" class="edit-history-search" type="search" placeholder="Filter history..."/>
-          <button id="edit-history-toggle" class="button-secondary button-small">></button>
-        </div>
-      </header>
-
-      <div class="edit-history-body">
-        <p class="edit-history-empty" id="edit-history-empty">No edits yet. Changes you save will appear here.</p>
-        <ol id="edit-history-list" class="edit-history-list"></ol>
-      </div>
-    </aside>
-
+    <%- include('partials/edithistory.ejs') %>
     <div id="edit-division-form">
       <div
         class="modal-overlay"

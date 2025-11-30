@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render('dash2.ejs');
+    res.render('dash2.ejs', {currentUrl: req.path});
 })
 
 app.get('/sign-in', (req, res) => {
@@ -49,7 +49,7 @@ app.get('/division-data', async (req, res) => {
 app.get('/summary', async(req, res) => { 
     try{
       const [LOCData] = await pool.query('SELECT * FROM divisiondata ORDER BY division DESC');
-      res.render('summary', { LOCData });
+      res.render('summary', { LOCData, currentUrl: req.path });
     } catch(err){
       console.error('Database error:', err);
     }
