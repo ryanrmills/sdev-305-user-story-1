@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render('dash2.ejs', {currentUrl: req.path});
+    res.render('dash.ejs', {currentUrl: req.path});
 })
 
 app.get('/sign-in', (req, res) => {
@@ -161,3 +161,92 @@ const PORT = 3003;
 app.listen(PORT, (req, res) => {
     console.log(`Server is running at http://localhost:${PORT}`);
 })
+
+//year by year
+app.get('/year-by-year', async(req, res) => {
+    try {
+      const [LOCData] = await pool.query('SELECT * FROM divisiondata ORDER BY division ASC, academic_program ASC');
+      const [reviews] = await pool.query('SELECT program_id, review_year FROM program_reviews');
+
+      const currentYear = new Date().getFullYear();
+      const startYear = currentYear;
+      const numYears = 6; 
+      const academicYears = [];
+      for (let i = 0; i < numYears; i++) {
+        const year = startYear + i;
+        const nextYear = (year + 1).toString().slice(-2);
+        academicYears.push(`${year}-${nextYear}`);
+      }
+
+      const reviewMap = {};
+      reviews.forEach(r => {
+        if (!reviewMap[r.program_id]) reviewMap[r.program_id] = [];
+        reviewMap[r.program_id].push(r.review_year);
+      });
+
+      const programsByDivision = {};
+      const divisionOrder = [];
+
+      LOCData.forEach(program => {
+        const division = program.division;
+        if (!programsByDivision[division]) {
+          programsByDivision[division] = [];
+          divisionOrder.push(division);
+        }
+
+        const programReviewYears = reviewMap[program.id] ? reviewMap[program.id].slice() : [];
+
+        programsByDivision[division].push({
+          id: program.id,
+          division: division,
+          academic_program: program.academic_program,
+          division_chair: program.division_chair,
+          dean: program.dean,
+          loc_rep: program.loc_rep,
+          pen_contact: program.pen_contact,
+          last_reviewed: program.date_submitted ? new Date(program.date_submitted).getFullYear() : null,
+          reviewYears: programReviewYears
+        });
+      });
+
+      res.render('yearbyyear', { 
+        programsByDivision, 
+        divisionOrder,
+        academicYears, 
+        startYear, 
+        currentYear, 
+        currentUrl: req.path 
+      });
+    } catch(err){
+      console.error('Database error:', err);
+    }
+});
+
+//adding a year to review
+app.post('/programs/:id/review-years', async (req, res) => {
+  try {
+    const programId = parseInt(req.params.id, 10);
+    const { year } = req.body;
+    const reviewYear = parseInt(year, 10);
+    if (!programId || !reviewYear) return res.status(400).json({ error: 'Invalid program id or year' });
+    await pool.execute('INSERT IGNORE INTO program_reviews (program_id, review_year) VALUES (?, ?)', [programId, reviewYear]);
+    res.json({ success: true, programId, reviewYear });
+  } catch (err) {
+    console.error('Failed to add review year', err);
+  }
+});
+
+//unchecking a year from review
+app.delete('/programs/:id/review-years/:year', async (req, res) => {
+  try {
+    const programId = parseInt(req.params.id, 10);
+    const reviewYear = parseInt(req.params.year, 10);
+    if (!programId || !reviewYear) return res.status(400).json({ error: 'Invalid program id or year' });
+
+    await pool.execute('DELETE FROM program_reviews WHERE program_id = ? AND review_year = ?', [programId, reviewYear]);
+    res.json({ success: true, programId, reviewYear });
+  } catch (err) {
+    console.error('Failed to remove review year', err);
+  }
+});
+//year by year end

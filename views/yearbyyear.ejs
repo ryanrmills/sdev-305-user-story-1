@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRC PAI Report - Review Schedule</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
+    <script src="//code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+
+    <link rel="stylesheet" href="./../styles/yearbyyear.css">
+    <link rel="stylesheet" href="./../styles/nav.css">
+    <script src="./../js/yearbyyear.js" defer></script>
+  </head>
+  <body>
+    <%- include('partials/nav') %>
+    <main>
+      <section class="yearbyyear-container">
+        <div class="yearbyyear-header">
+          <h2 class="yearbyyear-title">Program Review Schedule</h2>
+          <p class="yearbyyear-subtitle">7-Year Review Cycle - Programs scheduled for review by academic year</p>
+        </div>
+
+        <div class="yearbyyear-content">
+          <table class="schedule-grid">
+            <thead>
+              <tr>
+                <th class="division-column">Division</th>
+                <th class="program-column">Program</th>
+                <% academicYears.forEach(year => { %>
+                  <th class="year-column"><%= year %></th>
+                <% }); %>
+              </tr>
+            </thead>
+            <tbody>
+              <% divisionOrder.forEach(division => { %>
+                <% const programs = programsByDivision[division]; %>
+                <% const isFirstInDivision = true; %>
+                <% programs.forEach((program, index) => { %>
+                  <tr class="<% if (index === 0) { %>division-start<% } %>">
+                    <% if (index === 0) { %>
+                      <td class="division-cell" rowspan="<%= programs.length %>">
+                        <span class="division-label"><%= division %></span>
+                      </td>
+                    <% } %>
+                    <td class="program-cell">
+                      <%= program.academic_program %>
+                    </td>
+                    <% academicYears.forEach((year, yearIndex) => { %>
+                      <% const yearNum = startYear + yearIndex; %>
+                      <% const isDue = program.reviewYears && program.reviewYears.includes(yearNum); %>
+                      <td class="review-cell <% if (isDue) { %>due<% } %>">
+                        <label class="checkbox-label">
+                          <input type="checkbox"
+                                 class="review-toggle"
+                                 data-program-id="<%= program.id %>"
+                                 data-year="<%= yearNum %>"
+                                 <%= isDue ? 'checked' : '' %> />
+                        </label>
+                      </td>
+                    <% }); %>
+                  </tr>
+                <% }); %>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

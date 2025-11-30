@@ -1,0 +1,214 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f4f7f4;
+    color: #1f1f1f;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+main {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    overflow: scroll;
+}
+
+.yearbyyear-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.yearbyyear-header {
+    margin-bottom: 2rem;
+}
+
+.yearbyyear-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1f1f1f;
+    letter-spacing: -0.02em;
+}
+
+.yearbyyear-subtitle {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #5d7062;
+    font-weight: 400;
+}
+
+.yearbyyear-content {
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 1.25rem 2.5rem rgba(31, 58, 31, 0.1);
+    background: #ffffff;
+}
+
+.schedule-grid {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background: #ffffff;
+}
+
+.schedule-grid thead {
+    background: linear-gradient(180deg, #126400 0%, #0d4700 100%);
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.schedule-grid thead th {
+    padding: 1rem 0.75rem;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.program-column {
+    text-align: left !important;
+    min-width: 250px;
+    max-width: 300px;
+}
+
+.division-column {
+    text-align: left !important;
+    min-width: 180px;
+    max-width: 220px;
+    padding-left: 1rem;
+}
+
+.year-column {
+    min-width: 90px;
+    text-align: center;
+}
+
+.schedule-grid tbody tr {
+    border-bottom: 1px solid #e3ebe2;
+    transition: background-color 0.2s ease;
+}
+
+.schedule-grid tbody tr:hover {
+    background-color: #f8fbf8;
+}
+
+.schedule-grid tbody tr.division-start {
+    border-top: 2px solid #c3d8c3;
+}
+
+.schedule-grid tbody td {
+    padding: 0.85rem 0.75rem;
+    border-right: 1px solid #e3ebe2;
+    vertical-align: middle;
+}
+
+.division-cell {
+    background: linear-gradient(180deg, #f0f7ef 0%, #e5f0e4 100%);
+    font-weight: 700;
+    color: #1f2e1f;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    padding: 0.75rem 1rem;
+    border-right: 2px solid #c3d8c3;
+    border-bottom: 2px solid #c3d8c3;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.division-label {
+    display: inline-block;
+    word-break: break-word;
+}
+
+.program-cell {
+    font-weight: 500;
+    color: #223423;
+    text-align: left;
+    min-width: 200px;
+    padding-left: 1rem;
+}
+
+.review-cell {
+    text-align: center;
+    background: #ffffff;
+    color: #c3d8c3;
+    font-weight: 500;
+}
+
+.review-cell.due {
+    background: #e5f0e4;
+    color: #0d4700;
+}
+
+.review-marker {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #0d4700;
+}
+
+@media (max-width: 1024px) {
+    .yearbyyear-container {
+        padding: 1.5rem;
+    }
+
+    .schedule-grid thead th,
+    .schedule-grid tbody td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .program-column {
+        min-width: 200px;
+    }
+
+    .year-column {
+        min-width: 75px;
+    }
+}
+
+@media (max-width: 768px) {
+    .yearbyyear-container {
+        padding: 1rem;
+    }
+
+    .yearbyyear-title {
+        font-size: 1.4rem;
+    }
+
+    .schedule-grid {
+        font-size: 0.8rem;
+    }
+
+    .schedule-grid thead th,
+    .schedule-grid tbody td {
+        padding: 0.6rem 0.4rem;
+    }
+
+    .program-column {
+        min-width: 150px;
+    }
+
+    .year-column {
+        min-width: 65px;
+    }
+
+    .program-cell {
+        font-size: 0.8rem;
+    }
+
+    .division-cell {
+        padding: 0.5rem 0.25rem;
+    }
+}

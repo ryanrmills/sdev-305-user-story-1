@@ -75,6 +75,34 @@ LOCK TABLES `edit_history` WRITE;
 INSERT INTO `edit_history` VALUES (1,'Division 7','Division 7 (Psychology) updated','{\"changes\":{\"payees\":{\"from\":\"me\",\"to\":\"\"},\"notes\":{\"from\":\"this is another change 2356\",\"to\":\"change\"}},\"newValues\":{\"division\":\"Division 7\",\"academicProgram\":\"Psychology\",\"payees\":\"\",\"hasBeenPaid\":\"No\",\"reportSubmitted\":\"No\",\"notes\":\"change\"}}','2025-11-18 04:54:55');
 /*!40000 ALTER TABLE `edit_history` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `program_reviews`
+--
+
+DROP TABLE IF EXISTS `program_reviews`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `program_reviews` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `program_id` int NOT NULL,
+  `review_year` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq_program_year` (`program_id`,`review_year`),
+  KEY `idx_program_id` (`program_id`),
+  KEY `idx_review_year` (`review_year`)
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `program_reviews`
+--
+
+LOCK TABLES `program_reviews` WRITE;
+/*!40000 ALTER TABLE `program_reviews` DISABLE KEYS */;
+INSERT INTO `program_reviews` VALUES (50,1,2032),(49,2,2031),(48,3,2030),(47,4,2029),(46,5,2028),(45,6,2027),(44,7,2026),(43,8,2025),(42,9,2024),(41,10,2023),(40,11,2022),(64,11,2026),(39,12,2021),(38,13,2020),(37,14,2019),(36,15,2018),(35,16,2017),(34,17,2016),(33,18,2015),(32,19,2014),(31,20,2013),(30,21,2012),(29,22,2011),(28,23,2010),(27,24,2009),(26,25,2008),(25,26,2007),(24,27,2006),(23,28,2005),(22,29,2004),(21,30,2003),(20,31,2002),(19,32,2001),(18,33,2000),(17,34,1999),(16,35,1998),(15,36,1997),(14,37,1996),(13,38,1995),(12,39,1994),(11,40,1993),(10,41,1992),(9,42,1991),(8,43,1990),(7,44,1989),(6,45,1988),(5,46,1987),(4,47,1986),(3,48,1985),(2,49,1984),(1,50,1983);
+/*!40000 ALTER TABLE `program_reviews` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -85,4 +113,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-18  4:59:48
+-- Dump completed on 2025-11-30  3:30:14

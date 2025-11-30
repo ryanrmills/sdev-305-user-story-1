@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GRC PAI Report</title>
-    <link rel="stylesheet" href="./../styles/dash.css">
-    <script src="./../js/dash.js" defer></script>
+    <link rel="stylesheet" href="styles/dash.css" />
+    <link rel="stylesheet" href="styles/nav.css" />
+    <link rel="stylesheet" href="styles/edithistory.css" />
+    <script src="js/dash.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
+    <script src="//code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
   </head>
   <body>
     <%- include('partials/nav') %>
     <main>
-      <form id="PAI-form" class="form-card" action="#" method="get">
+      <div id="PAI-form" class="form-card">
         <div class="form-card__header">
           <div class="form-card__headline">
-            <h2 class="form-card__title">Division</h2>
-            <p class="form-card__subtitle">Select a division to review or update contact details.</p>
+            <h2 class="form-card__title">Division Management</h2>
+            <p class="form-card__subtitle">
+              Select a division to review or update contact details.
+            </p>
           </div>
           <div class="form-card__selector">
             <label class="input-label" for="division-selector">Division</label>
@@ -33,49 +40,161 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <div id="toggle-display-form" class="form-card__body">
-          <fieldset class="form-fieldset">
-            <legend class="form-fieldset__legend">Division details</legend>
-            <div class="form-grid">
-              <div class="PAI-input">
-                <span id="err-divison-name" class="error">Please enter a valid division.<br></span>
-                <label for="division-name">Division name</label>
-                <input type="text" id="division-name" name="divison-name" value="">
-              </div>
-
-              <div class="PAI-input">
-                <span id="err-dean" class="error">Please enter a valid dean.<br></span>
-                <label for="dean">Dean</label>
-                <input type="text" id="dean" name="dean" value="">
-              </div>
-
-              <div class="PAI-input">
-                <span id="err-PEN-contact" class="error">Please enter a valid PEN contact.<br></span>
-                <label for="PEN-contact">PEN contact</label>
-                <input type="text" id="PEN-contact" name="PEN-contact" value="">
-              </div>
-
-              <div class="PAI-input">
-                <span id="err-LOC-rep" class="error">Please enter a valid LOC rep.<br></span>
-                <label for="LOC-rep">LOC rep.</label>
-                <input type="text" id="LOC-rep" name="LOC-rep" value="">
-              </div>
-
-              <div class="PAI-input">
-                <span id="err-chair" class="error">Please enter a valid chair.<br></span>
-                <label for="chair">Chair</label>
-                <input type="text" id="chair" name="chair" value="">
-              </div>
-            </div>
-
-            <div id="PAI-reset-submit" class="form-actions">
-              <button type="reset" id="cancel-button">Cancel</button>
-              <button type="submit" id="save-button">Save</button>
-            </div>
-          </fieldset>
+      <section
+        id="toggle-display-form"
+        class="division-card"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <div class="division-card__header">
+          <div class="division-card__heading">
+            <span class="division-card__eyebrow">Division overview</span>
+            <h2 id="division-name" class="division-card__title">Select a division</h2>
+            <p id="program-name" class="division-card__subtitle">Academic program</p>
+          </div>
+          <button
+            type="button"
+            class="division-card__edit-btn"
+            id="division-edit-button"
+            aria-label="Edit division details"
+          >
+            Edit details
+          </button>
         </div>
-      </form>
+
+        <div class="division-card__meta">
+          <span class="status-chip status-chip--pending" id="report-status">Report pending</span>
+          <span class="status-chip status-chip--pending" id="payment-status">Payment pending</span>
+          <span class="division-card__date" id="last-updated">Last updated —</span>
+        </div>
+
+        <dl class="division-card__details">
+          <div class="division-card__detail">
+            <dt>Division chair</dt>
+            <dd id="division-chair">—</dd>
+          </div>
+          <div class="division-card__detail">
+            <dt>Dean</dt>
+            <dd id="dean">—</dd>
+          </div>
+          <div class="division-card__detail">
+            <dt>LOC representative</dt>
+            <dd id="loc-rep">—</dd>
+          </div>
+          <div class="division-card__detail">
+            <dt>PEN contact</dt>
+            <dd id="pen-contact">—</dd>
+          </div>
+          <div class="division-card__detail division-card__detail--full">
+            <dt>Notes</dt>
+            <dd id="division-notes">No notes on record.</dd>
+          </div>
+        </dl>
+      </section>
     </main>
+
+    <%- include('partials/edithistory.ejs') %>
+    <div id="edit-division-form">
+      <div
+        class="modal-overlay"
+        id="edit-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+        aria-labelledby="edit-modal-title"
+      >
+        <div class="modal-card" role="document">
+          <header class="modal-card__header">
+            <div>
+              <span class="modal-card__eyebrow">Edit division</span>
+              <h2 class="modal-card__title" id="edit-modal-title">Update details</h2>
+            </div>
+            <button
+              type="button"
+              class="modal-card__close"
+              id="edit-close-btn"
+              aria-label="Close edit form"
+            >
+              &times;
+            </button>
+          </header>
+
+          <form id="division-edit-form" class="modal-form" novalidate>
+            <div class="modal-form__grid">
+              <div class="modal-field">
+                <label for="edit-division">Division name</label>
+                <input type="text" id="edit-division" name="division" required />
+                <span class="input-error" id="error-edit-division">Division name is required.</span>
+              </div>
+
+              <div class="modal-field">
+                <label for="edit-program">Academic program</label>
+                <input type="text" id="edit-program" name="program" required />
+                <span class="input-error" id="error-edit-program">Academic program is required.</span>
+              </div>
+
+              <div class="modal-field">
+                <label for="edit-chair">Division chair</label>
+                <input type="text" id="edit-chair" name="divisionChair" required />
+                <span class="input-error" id="error-edit-chair">Division chair is required.</span>
+              </div>
+
+              <div class="modal-field">
+                <label for="edit-dean">Dean</label>
+                <input type="text" id="edit-dean" name="dean" required />
+                <span class="input-error" id="error-edit-dean">Dean is required.</span>
+              </div>
+
+              <div class="modal-field">
+                <label for="edit-loc-rep">LOC representative</label>
+                <input type="text" id="edit-loc-rep" name="locRep" required />
+                <span class="input-error" id="error-edit-loc-rep">LOC representative is required.</span>
+              </div>
+
+              <div class="modal-field">
+                <label for="edit-pen-contact">PEN contact</label>
+                <input type="text" id="edit-pen-contact" name="penContact" required />
+                <span class="input-error" id="error-edit-pen-contact">PEN contact is required.</span>
+              </div>
+
+              <div class="modal-field">
+                <label for="edit-report-status">Report status</label>
+                <select id="edit-report-status" name="reportStatus" required>
+                  <option value="submitted">Submitted</option>
+                  <option value="pending">Pending</option>
+                </select>
+                <span class="input-error" id="error-edit-report-status">Report status is required.</span>
+              </div>
+
+              <div class="modal-field">
+                <label for="edit-payment-status">Payment status</label>
+                <select id="edit-payment-status" name="paymentStatus" required>
+                  <option value="paid">Paid</option>
+                  <option value="pending">Pending</option>
+                </select>
+                <span class="input-error" id="error-edit-payment-status">Payment status is required.</span>
+              </div>
+            </div>
+
+            <div class="modal-field modal-field--full">
+              <label for="edit-notes">Notes</label>
+              <textarea
+                id="edit-notes"
+                name="notes"
+                rows="4"
+                placeholder="Add context for this update (optional)"
+              ></textarea>
+            </div>
+
+            <footer class="modal-actions">
+              <button type="button" class="button-secondary" id="edit-cancel-btn">Cancel</button>
+              <button type="submit" class="button-primary">Save changes</button>
+            </footer>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

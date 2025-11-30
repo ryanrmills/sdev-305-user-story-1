@@ -1,0 +1,143 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f4f7f4;
+    color: #1f1f1f;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+.sidebar-nav {
+    position: fixed;
+    box-sizing: border-box;
+    width: 17rem;
+    min-width: 17rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1.75rem;
+    background: linear-gradient(160deg, #126400, #109000);
+    color: #ffffff;
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.16);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.125rem;
+    background: rgba(255, 255, 255, 0.18);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.nav-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.tool-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.35rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.tool-subtitle {
+    margin: 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.8rem 0.9rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    color: inherit;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-0.0625rem);
+    outline: none;
+}
+
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+}
+
+.nav-link__label {
+    font-size: 1rem;
+}
+
+.nav-link__description {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.nav-footer {
+    margin-top: auto;
+}
+
+
+
+.sign-in-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #0f6b00;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sign-in-btn:hover,
+.sign-in-btn:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    outline: none;
+}
