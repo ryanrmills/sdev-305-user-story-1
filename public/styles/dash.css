@@ -41,13 +41,6 @@ main {
     gap: 3rem;
     overflow: scroll;
 }
-body.history-open main {
-    margin-right: 22.5rem;
-}
-body.history-open main {
-    margin-right: 22.5rem;
-}
-
 #PAI-form {
     width: min(100%, 60rem);
     align-self: stretch;
@@ -199,6 +192,14 @@ body.history-open main {
     gap: 1.5rem;
 }
 
+.division-card__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+    z-index: 1;
+}
+
 .division-card__heading {
     display: flex;
     flex-direction: column;
@@ -303,7 +304,7 @@ body.history-open main {
 .division-card__date {
     font-size: 0.85rem;
     color: #5d7062;
-    margin-left: auto;
+    text-align: right;
 }
 
 .division-card__details {

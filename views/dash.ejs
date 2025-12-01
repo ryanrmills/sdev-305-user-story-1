@@ -51,23 +51,20 @@
         <div class="division-card__header">
           <div class="division-card__heading">
             <span class="division-card__eyebrow">Division overview</span>
-            <h2 id="division-name" class="division-card__title">Select a division</h2>
-            <p id="program-name" class="division-card__subtitle">Academic program</p>
+            <h2 id="division-name" class="division-card__title"></h2>
+            <!-- <p id="program-name" class="division-card__subtitle">Academic program</p> -->
           </div>
-          <button
-            type="button"
-            class="division-card__edit-btn"
-            id="division-edit-button"
-            aria-label="Edit division details"
-          >
-            Edit details
-          </button>
-        </div>
-
-        <div class="division-card__meta">
-          <span class="status-chip status-chip--pending" id="report-status">Report pending</span>
-          <span class="status-chip status-chip--pending" id="payment-status">Payment pending</span>
-          <span class="division-card__date" id="last-updated">Last updated —</span>
+          <div class="division-card__actions">
+            <button
+              type="button"
+              class="division-card__edit-btn"
+              id="division-edit-button"
+              aria-label="Edit division details"
+            >
+              Edit details
+            </button>
+            <span class="division-card__date" id="last-updated">Last updated —</span>
+          </div>
         </div>
 
         <dl class="division-card__details">
@@ -130,12 +127,6 @@
               </div>
 
               <div class="modal-field">
-                <label for="edit-program">Academic program</label>
-                <input type="text" id="edit-program" name="program" required />
-                <span class="input-error" id="error-edit-program">Academic program is required.</span>
-              </div>
-
-              <div class="modal-field">
                 <label for="edit-chair">Division chair</label>
                 <input type="text" id="edit-chair" name="divisionChair" required />
                 <span class="input-error" id="error-edit-chair">Division chair is required.</span>
@@ -159,23 +150,6 @@
                 <span class="input-error" id="error-edit-pen-contact">PEN contact is required.</span>
               </div>
 
-              <div class="modal-field">
-                <label for="edit-report-status">Report status</label>
-                <select id="edit-report-status" name="reportStatus" required>
-                  <option value="submitted">Submitted</option>
-                  <option value="pending">Pending</option>
-                </select>
-                <span class="input-error" id="error-edit-report-status">Report status is required.</span>
-              </div>
-
-              <div class="modal-field">
-                <label for="edit-payment-status">Payment status</label>
-                <select id="edit-payment-status" name="paymentStatus" required>
-                  <option value="paid">Paid</option>
-                  <option value="pending">Pending</option>
-                </select>
-                <span class="input-error" id="error-edit-payment-status">Payment status is required.</span>
-              </div>
             </div>
 
             <div class="modal-field modal-field--full">

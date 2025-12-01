@@ -1,13 +1,8 @@
 import express from 'express';
 import mysql2 from 'mysql2'
 import dotenv from 'dotenv'
-//import data from './backend/assets/programs_50_years.json' assert {type: 'json'};
-import { readFile } from 'fs/promises';
-
 dotenv.config();
-
 const app = express();
-
 const pool = mysql2.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -15,9 +10,7 @@ const pool = mysql2.createPool({
     database: process.env.DB_NAME,
     port: process.env.DB_PORT
 }).promise();
-
 const path = import.meta.dirname;
-
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -32,17 +25,8 @@ app.get('/sign-in', (req, res) => {
 
 app.get('/division-data', async (req, res) => {
     const division = req.query.division;
-
-    //const result = LOCData.filter(item => item.division === division);
-
-    const [result] = await pool.query(`SELECT * FROM divisions WHERE division_name = '${division}'`);
-
-    // let sortedLOCData = [...result].sort((a, b) =>
-    //     new Date(b['dateSubmitted']) - new Date(a['dateSubmitted'])
-    // );
-
-    // res.json(sortedLOCData);
-    console.log({resultDivisons: result});
+    const [result] = await pool.query(`SELECT * FROM divisions WHERE division_name = ?`, [division]);
+    console.log(result);
     res.send(result[0]);
 })
 
@@ -79,8 +63,6 @@ app.post('/submit-data', async(req, res) => {
       { col: 'division', key: 'division' },
       { col: 'academic_program', key: 'academicProgram' },
       { col: 'payees', key: 'payees' },
-      { col: 'has_been_paid', key: 'hasBeenPaid' },
-      { col: 'report_submitted', key: 'reportSubmitted' },
       { col: 'notes', key: 'notes' }
     ];
 
@@ -118,8 +100,6 @@ app.post('/submit-data', async(req, res) => {
       division: 'Division',
       academicProgram: 'Program',
       payees: 'Payees',
-      hasBeenPaid: 'Paid',
-      reportSubmitted: 'Report submitted',
       notes: 'Notes'
     };
     const changedKeys = Object.keys(changes || {});
@@ -157,10 +137,7 @@ app.get('/edit-history', async (req, res) => {
   }
 });
 
-const PORT = 3003;
-app.listen(PORT, (req, res) => {
-    console.log(`Server is running at http://localhost:${PORT}`);
-})
+
 
 //year by year
 app.get('/year-by-year', async(req, res) => {
@@ -250,3 +227,7 @@ app.delete('/programs/:id/review-years/:year', async (req, res) => {
   }
 });
 //year by year end
+const PORT = 3003;
+app.listen(PORT, (req, res) => {
+    console.log(`Server is running at http://localhost:${PORT}`);
+})

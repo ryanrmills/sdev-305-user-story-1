@@ -12,8 +12,6 @@ const dean = document.getElementById('dean');
 const locRep = document.getElementById('loc-rep');
 const penContact = document.getElementById('pen-contact');
 const notes = document.getElementById('division-notes');
-const reportStatus = document.getElementById('report-status');
-const paymentStatus = document.getElementById('payment-status');
 const lastUpdated = document.getElementById('last-updated');
 
 const editModal = document.getElementById('edit-modal');
@@ -24,25 +22,19 @@ const editCancelButton = document.getElementById('edit-cancel-btn');
 
 const editFields = {
     division: document.getElementById('edit-division'),
-    program: document.getElementById('edit-program'),
     chair: document.getElementById('edit-chair'),
     dean: document.getElementById('edit-dean'),
     locRep: document.getElementById('edit-loc-rep'),
     penContact: document.getElementById('edit-pen-contact'),
-    reportStatus: document.getElementById('edit-report-status'),
-    paymentStatus: document.getElementById('edit-payment-status'),
     notes: document.getElementById('edit-notes')
 };
 
 const editErrors = {
     division: document.getElementById('error-edit-division'),
-    program: document.getElementById('error-edit-program'),
     chair: document.getElementById('error-edit-chair'),
     dean: document.getElementById('error-edit-dean'),
     locRep: document.getElementById('error-edit-loc-rep'),
-    penContact: document.getElementById('error-edit-pen-contact'),
-    reportStatus: document.getElementById('error-edit-report-status'),
-    paymentStatus: document.getElementById('error-edit-payment-status')
+    penContact: document.getElementById('error-edit-pen-contact')
 };
 
 let currentDivision = null;
@@ -65,12 +57,6 @@ const formatDate = (dateValue) => {
     });
 };
 
-const updateStatusChip = (element, isComplete, completeText, pendingText) => {
-    element.textContent = isComplete ? completeText : pendingText;
-    element.classList.toggle('status-chip--success', isComplete);
-    element.classList.toggle('status-chip--pending', !isComplete);
-};
-
 const populateDivisionCard = (entry, fallbackDivision) => {
     divisionName.textContent = entry.division ?? fallbackDivision ?? '—';
     //programName.textContent = entry.academicProgram ?? '—';
@@ -80,12 +66,9 @@ const populateDivisionCard = (entry, fallbackDivision) => {
     penContact.textContent = entry.penContact ?? '—';
     notes.textContent = entry.notes?.trim() ? entry.notes : 'No notes on record.';
 
-    updateStatusChip(reportStatus, Boolean(entry.reportSubmitted), 'Report submitted', 'Report pending');
-    updateStatusChip(paymentStatus, Boolean(entry.hasBeenPaid), 'Payment complete', 'Payment pending');
-
     const formattedDate = formatDate(entry.dateSubmitted);
-    lastUpdated.textContent = formattedDate ? `Last updated ${formattedDate}` : 'Last updated —';
-
+    //lastUpdated.textContent = formattedDate ? `Last updated ${formattedDate}` : 'Last updated —';
+    lastUpdated.textContent = entry.dateSubmitted ? `Last updated ${entry.dateSubmitted}` : 'Last updated —';
     divisionCard.classList.add('is-visible');
 };
 
@@ -101,13 +84,10 @@ const populateEditForm = () => {
     }
 
     editFields.division.value = currentDivision.division ?? '';
-    editFields.program.value = currentDivision.academicProgram ?? '';
     editFields.chair.value = currentDivision.divisionChair ?? '';
     editFields.dean.value = currentDivision.dean ?? '';
     editFields.locRep.value = currentDivision.locRep ?? '';
     editFields.penContact.value = currentDivision.penContact ?? '';
-    editFields.reportStatus.value = currentDivision.reportSubmitted ? 'submitted' : 'pending';
-    editFields.paymentStatus.value = currentDivision.hasBeenPaid ? 'paid' : 'pending';
     editFields.notes.value = currentDivision.notes ?? '';
 };
 
@@ -136,7 +116,6 @@ const closeEditModal = () => {
 
 divisionSelector.addEventListener('change', async (event) => {
     const selection = event.target.value;
-    console.log(selection);
     if (selection === 'none') {
         currentDivision = null;
         divisionCard.classList.remove('is-visible');
@@ -148,7 +127,6 @@ divisionSelector.addEventListener('change', async (event) => {
         const divisionData = await fetchDivisionData(selection);
         //const latestEntry = Array.isArray(divisionData) && divisionData.length > 0 ? divisionData[0] : {};
         const latestEntry = divisionData;
-        console.log(latestEntry)
         currentDivision = {
             division: latestEntry.division_name ?? selection,
             //academicProgram: latestEntry.academicProgram ?? '',
@@ -157,9 +135,8 @@ divisionSelector.addEventListener('change', async (event) => {
             locRep: latestEntry.division_loc_rep ?? '',
             penContact: latestEntry.division_pen_contact ?? '',
             notes: latestEntry.notes ?? '',
-            reportSubmitted: Boolean(latestEntry.reportSubmitted),
-            hasBeenPaid: Boolean(latestEntry.hasBeenPaid),
-            dateSubmitted: latestEntry.dateSubmitted ?? null
+            // dateSubmitted: latestEntry.date_updated ?? null
+            dateSubmitted: new Date(latestEntry.date_updated).toLocaleDateString() ?? null
         };
 
         populateDivisionCard(currentDivision, selection);
@@ -194,25 +171,19 @@ editForm.addEventListener('submit', (event) => {
 
     const trimmedValues = {
         division: editFields.division.value.trim(),
-        program: editFields.program.value.trim(),
         chair: editFields.chair.value.trim(),
         dean: editFields.dean.value.trim(),
         locRep: editFields.locRep.value.trim(),
         penContact: editFields.penContact.value.trim(),
-        reportStatus: editFields.reportStatus.value,
-        paymentStatus: editFields.paymentStatus.value,
         notes: editFields.notes.value.trim()
     };
 
     const validations = [
         { value: trimmedValues.division, errorNode: editErrors.division },
-        { value: trimmedValues.program, errorNode: editErrors.program },
         { value: trimmedValues.chair, errorNode: editErrors.chair },
         { value: trimmedValues.dean, errorNode: editErrors.dean },
         { value: trimmedValues.locRep, errorNode: editErrors.locRep },
-        { value: trimmedValues.penContact, errorNode: editErrors.penContact },
-        { value: trimmedValues.reportStatus, errorNode: editErrors.reportStatus },
-        { value: trimmedValues.paymentStatus, errorNode: editErrors.paymentStatus }
+        { value: trimmedValues.penContact, errorNode: editErrors.penContact }
     ];
 
     let isValid = true;
@@ -231,14 +202,11 @@ editForm.addEventListener('submit', (event) => {
     currentDivision = {
         ...currentDivision,
         division: trimmedValues.division,
-        academicProgram: trimmedValues.program,
         divisionChair: trimmedValues.chair,
         dean: trimmedValues.dean,
         locRep: trimmedValues.locRep,
         penContact: trimmedValues.penContact,
         notes: trimmedValues.notes,
-        reportSubmitted: trimmedValues.reportStatus === 'submitted',
-        hasBeenPaid: trimmedValues.paymentStatus === 'paid',
         dateSubmitted: new Date().toISOString()
     };
 
@@ -247,13 +215,10 @@ editForm.addEventListener('submit', (event) => {
         division: currentDivision.division,
         summary: `${currentDivision.division} updated`,
         details: {
-            program: currentDivision.academicProgram,
             chair: currentDivision.divisionChair,
             dean: currentDivision.dean,
             locRep: currentDivision.locRep,
             penContact: currentDivision.penContact,
-            reportSubmitted: currentDivision.reportSubmitted,
-            hasBeenPaid: currentDivision.hasBeenPaid,
             notes: currentDivision.notes
         },
         timestamp: currentDivision.dateSubmitted
@@ -349,8 +314,6 @@ const applyHistoryFilter = (query) => {
                 dean: 'Dean',
                 locRep: 'LOC rep',
                 penContact: 'PEN contact',
-                reportSubmitted: 'Report submitted',
-                hasBeenPaid: 'Paid',
                 notes: 'Notes'
             };
 
@@ -439,8 +402,7 @@ window.addEventListener('DOMContentLoaded', () => {
         try {
             localStorage.setItem('editHistoryCollapsed', collapsed ? '1' : '0'); 
         } catch (e) {}
-        document.body.classList.toggle('history-open', !collapsed);
-        }
+    }
 
     toggle.addEventListener('click', (e) => {
         e.preventDefault();
