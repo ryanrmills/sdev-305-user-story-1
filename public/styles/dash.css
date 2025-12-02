@@ -304,7 +304,8 @@ main {
 .division-card__date {
     font-size: 0.85rem;
     color: #5d7062;
-    text-align: right;
+    text-align: left;
+    align-self: flex-start;
 }
 
 .division-card__details {

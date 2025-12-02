@@ -32,6 +32,12 @@ app.get('/division-data', async (req, res) => {
     res.send({divisionInfo: divisionResult, programs: divisionPrograms});
 })
 
+app.get('/get-programs/:division', async(req, res) => {
+  const division = req.body.division;
+  const [programs] = await pool.query('SELECT academic_programs FROM divisiondata WHERE division = ?', [division])
+  res.send(programs);
+})
+
 
 
 app.get('/summary', async(req, res) => { 
@@ -112,7 +118,7 @@ app.post('/submit-data', async(req, res) => {
     await pool.execute('INSERT INTO edit_history (division, summary, details, timestamp) VALUES (?, ?, ?, ?)', [divisionLabel, summaryText, JSON.stringify(details), new Date()]);
 
     const [LOCData] = await pool.query('SELECT * FROM divisiondata ORDER BY division DESC');
-    res.render('summary', { LOCData });
+    res.render('summary', { LOCData, currentUrl: '/summary' });
   } catch (err) {
     console.log('Database Error', err);
   }
@@ -134,7 +140,7 @@ app.post('/edit-history', async (req, res) => {
 //get the history
 app.get('/edit-history', async (req, res) => {
   try {
-    const [rows] = await pool.query('SELECT * FROM edit_history ORDER BY timestamp DESC');
+    const [rows] = await pool.query('SELECT * FROM edit_history ORDER BY timestamp DESC LIMIT 5');
     res.json(rows);
   } catch (err) {
     console.error('Failed to read edit history', err);

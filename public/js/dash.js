@@ -414,3 +414,6 @@ window.addEventListener('DOMContentLoaded', () => {
         setCollapsed(saved === '1');
     } catch (e) {}
 });
+
+//getting all of the programs in the division and displaying them here
+
