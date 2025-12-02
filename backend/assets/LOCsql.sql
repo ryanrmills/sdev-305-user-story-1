@@ -114,3 +114,18 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2025-11-30  3:30:14
+
+
+USE loc_db;
+INSERT INTO divisiondata (division, academic_program, division_chair, dean, loc_rep, pen_contact, has_been_paid, report_submitted) VALUES ('Social Science', 'History', 'Mark Thomason', 'Christie Gilliland', 'Joy Crawford', 'Liz Peterson', 'No', 'No');
+INSERT INTO divisiondata (division, academic_program, division_chair, dean, loc_rep, pen_contact, has_been_paid, report_submitted) VALUES ('Social Science', 'Political Science', 'Mark Thomason', 'Christie Gilliland', 'Joy Crawford', 'Liz Peterson', 'No', 'No');
+INSERT INTO divisiondata (division, academic_program, division_chair, dean, loc_rep, pen_contact, has_been_paid, report_submitted) VALUES ('Social Science', 'Psychology', 'Mark Thomason', 'Christie Gilliland', 'Joy Crawford', 'Liz Peterson', 'No', 'No');
+INSERT INTO divisiondata (division, academic_program, division_chair, dean, loc_rep, pen_contact, has_been_paid, report_submitted) VALUES ('Science', 'Biology/Environmental Science', 'Katy Shaw and Danny Najera', 'Christie Gilliland', 'Joy Crawford', 'Liz Peterson', 'No', 'No');
+INSERT INTO divisiondata (division, academic_program, division_chair, dean, loc_rep, pen_contact, has_been_paid, report_submitted) VALUES ('Science', 'Geology/Oceanography', 'Katy Shaw and Danny Najera', 'Christie Gilliland', 'Joy Crawford', 'Liz Peterson', 'No', 'No');
+INSERT INTO divisiondata (division, academic_program, division_chair, dean, loc_rep, pen_contact, has_been_paid, report_submitted) VALUES ('Business, Law, and Education', 'Business Management', 'Lea Ann Simpson', 'Christie Gilliland', 'Joy Crawford', 'Liz Peterson', 'No', 'No');
+INSERT INTO divisiondata (division, academic_program, division_chair, dean, loc_rep, pen_contact, has_been_paid, report_submitted) VALUES ('Business, Law, and Education', 'Business Marketing/Entrepreneurship ', 'Lea Ann Simpson', 'Christie Gilliland', 'Joy Crawford', 'Liz Peterson', 'No', 'No');
+INSERT INTO divisiondata (division, academic_program, division_chair, dean, loc_rep, pen_contact, has_been_paid, report_submitted) VALUES ('Technology', 'CAD Design and Engineering Tech.', 'Michael Wood', 'Christie Gilliland', 'Joy Crawford', 'Liz Peterson', 'No', 'No');
+INSERT INTO divisiondata (division, academic_program, division_chair, dean, loc_rep, pen_contact, has_been_paid, report_submitted) VALUES ('Technology', 'Natural Resources', 'Michael Wood', 'Christie Gilliland', 'Joy Crawford', 'Liz Peterson', 'No', 'No');
+INSERT INTO divisiondata (division, academic_program, division_chair, dean, loc_rep, pen_contact, has_been_paid, report_submitted) VALUES ('Health Science', 'Practical Nursing', 'Leslie Kessler', 'Christie Gilliland', 'Joy Crawford', 'Liz Peterson', 'No', 'No');
+INSERT INTO divisiondata (division, academic_program, division_chair, dean, loc_rep, pen_contact, has_been_paid, report_submitted) VALUES ('Health Science', 'Physical Therapist Assistant', 'Leslie Kessler', 'Christie Gilliland', 'Joy Crawford', 'Liz Peterson', 'No', 'No');
+INSERT INTO divisiondata (division, academic_program, division_chair, dean, loc_rep, pen_contact, has_been_paid, report_submitted) VALUES ('Trades', 'Manufacturing', 'David Lewis', 'Christie Gilliland', 'Joy Crawford', 'Liz Peterson', 'No', 'No');

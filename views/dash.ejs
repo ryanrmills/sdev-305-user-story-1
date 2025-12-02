@@ -28,14 +28,17 @@
             <div class="select-wrapper">
               <select id="division-selector">
                 <option value="none">Pick a division...</option>
-                <option value="Fine Arts">Fine Arts</option>
+                <% (divisions || []).forEach((division) => { %>
+                  <option value="<%= division.division_name %>"><%= division.division_name %></option>
+                <% }) %>
+                <!-- <option value="Fine Arts">Fine Arts</option>
                 <option value="Humanities">Humanities</option>
                 <option value="Social Science">Social Science</option>
                 <option value="English">English</option>
                 <option value="Science">Science</option>
                 <option value="Technology">Technology</option>
                 <option value="Health Science">Health Science</option>
-                <option value="Trades">Trades</option>
+                <option value="Trades">Trades</option> -->
               </select>
             </div>
           </div>

@@ -15,20 +15,24 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    res.render('dash.ejs', {currentUrl: req.path});
+app.get('/', async(req, res) => {
+  const [list] = await pool.query(`SELECT division_name FROM divisions`);
+  res.render('dash.ejs', {currentUrl: req.path, divisions: list});
 })
 
 app.get('/sign-in', (req, res) => {
     res.render('signin');
 })
 
+//get division data and all of the programs in it
 app.get('/division-data', async (req, res) => {
     const division = req.query.division;
-    const [result] = await pool.query(`SELECT * FROM divisions WHERE division_name = ?`, [division]);
-    console.log(result);
-    res.send(result[0]);
+    const [divisionResult] = await pool.query(`SELECT * FROM divisions WHERE division_name = ?`, [division]);
+    const [divisionPrograms] = await pool.query(`SELECT * from divisiondata`, [division])
+    res.send({divisionInfo: divisionResult, programs: divisionPrograms});
 })
+
+
 
 app.get('/summary', async(req, res) => { 
     try{

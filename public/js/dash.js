@@ -126,7 +126,7 @@ divisionSelector.addEventListener('change', async (event) => {
     try {
         const divisionData = await fetchDivisionData(selection);
         //const latestEntry = Array.isArray(divisionData) && divisionData.length > 0 ? divisionData[0] : {};
-        const latestEntry = divisionData;
+        const latestEntry = divisionData.divisionInfo[0];
         currentDivision = {
             division: latestEntry.division_name ?? selection,
             //academicProgram: latestEntry.academicProgram ?? '',
