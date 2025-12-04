@@ -211,7 +211,7 @@ editForm.addEventListener('submit', async(event) => {
         dateSubmitted: new Date().toISOString()
     };
 
-    const result = await fetch('http://localhost:3003/edit-division', {
+    const result = await fetch('/edit-division', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
