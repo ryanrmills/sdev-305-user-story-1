@@ -33,6 +33,18 @@ app.get('/division-data', async (req, res) => {
     res.send({divisionInfo: divisionResult, programs: divisionPrograms});
 })
 
+app.post('/edit-division', async(req, res) => {
+  const request = req.body;
+
+  //let date = new Date(request.dateSubmitted).toISOString(19).replace('T',' ');
+  console.log(request);
+  const result = await pool.query(
+    'UPDATE divisions SET division_name = ?, division_chair = ?, division_dean = ?, division_loc_rep = ?, division_pen_contact = ?, date_updated = NOW(), division_notes = ? WHERE division_name = ?',
+    [request.division, request.divisionChair, request.dean, request.locRep, request.penContact, request.notes, request.oldDivision]
+  )
+  res.send({result});
+})
+
 app.get('/get-programs/:division', async(req, res) => {
   const division = req.body.division;
   const [programs] = await pool.query('SELECT academic_programs FROM divisiondata WHERE division = ?', [division])

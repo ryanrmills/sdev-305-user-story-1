@@ -134,7 +134,7 @@ divisionSelector.addEventListener('change', async (event) => {
             dean: latestEntry.division_dean ?? '',
             locRep: latestEntry.division_loc_rep ?? '',
             penContact: latestEntry.division_pen_contact ?? '',
-            notes: latestEntry.notes ?? '',
+            notes: latestEntry.division_notes ?? '',
             // dateSubmitted: latestEntry.date_updated ?? null
             dateSubmitted: new Date(latestEntry.date_updated).toLocaleDateString() ?? null
         };
@@ -165,7 +165,7 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-editForm.addEventListener('submit', (event) => {
+editForm.addEventListener('submit', async(event) => {
     event.preventDefault();
     clearValidationState();
 
@@ -201,6 +201,7 @@ editForm.addEventListener('submit', (event) => {
 
     currentDivision = {
         ...currentDivision,
+        oldDivision: currentDivision.division,
         division: trimmedValues.division,
         divisionChair: trimmedValues.chair,
         dean: trimmedValues.dean,
@@ -209,6 +210,14 @@ editForm.addEventListener('submit', (event) => {
         notes: trimmedValues.notes,
         dateSubmitted: new Date().toISOString()
     };
+
+    const result = await fetch('http://localhost:3003/edit-division', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(currentDivision)
+    })
 
     populateDivisionCard(currentDivision);
     addHistoryEntry({
