@@ -319,6 +319,8 @@ const applyHistoryFilter = (query) => {
                 division: 'Division',
                 academicProgram: 'Program',
                 payees: 'Payees',
+                has_been_paid: 'Paid',
+                report_submitted: 'Report Submitted',
                 divisionChair: 'Chair',
                 dean: 'Dean',
                 locRep: 'LOC rep',

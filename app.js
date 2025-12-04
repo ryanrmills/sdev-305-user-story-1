@@ -86,6 +86,8 @@ app.post('/submit-data', async(req, res) => {
       { col: 'division', key: 'division' },
       { col: 'academic_program', key: 'academicProgram' },
       { col: 'payees', key: 'payees' },
+      { col: 'has_been_paid', key: 'has_been_paid' },
+      { col: 'report_submitted', key: 'report_submitted' },
       { col: 'notes', key: 'notes' }
     ];
 

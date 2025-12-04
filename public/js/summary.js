@@ -76,8 +76,8 @@ table.on('click', 'tbody tr', function () {
 
     // When updating the summary page for SQL I incremented all of these to
     // account for the hidden ID column in the table. - Orion
-    fieldRules[0].input.value = String(data[1] ?? '').trim();
-    fieldRules[1].input.value = String(data[2] ?? '').trim();
+    fieldRules[0].input.value = String(data[2] ?? '').trim();
+    fieldRules[1].input.value = String(data[1] ?? '').trim();
     fieldRules[2].input.value = String(data[7] ?? '').trim();
     fieldRules[3].input.value = String(data[8] ?? '').trim();
     fieldRules[4].input.value = String(data[9] ?? '').trim();
