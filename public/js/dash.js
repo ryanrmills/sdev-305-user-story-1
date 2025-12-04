@@ -236,9 +236,6 @@ editForm.addEventListener('submit', async(event) => {
     closeEditModal();
 });
 
-document.getElementById('sign-in-redirect').onclick = () => {
-    window.location.href = '/sign-in';
-};
 
 //handler for the edit history get into json.
 const fetchHistoryFromServer = async () => {
